@@ -8,6 +8,12 @@ export const APP_TEXT = {
                   `Atualmente, atuo como Desenvolvedor Web Full-stack, trazendo uma sólida expertise em
                     Angular e TypeScript para o desenvolvimento Front-end, enquanto foco intensamente no
                     desenvolvimento Backend utilizando C#, .NET e Oracle PL/SQL.`,
+
+  skills: [
+    '.NET', 'C#', 'TypeScript', 'Oracle PL/SQL', 'GraphQL', 'Angular', 'JavaScript',
+    'Git', 'Clean code', 'HTML', 'GitHub', 'IIS', 'CSS', 'Web Development',
+    'Backend Development', 'Full-Stack Development'
+  ],
   experience:
     [
       {

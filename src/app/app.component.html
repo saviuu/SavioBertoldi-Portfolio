@@ -1,18 +1,25 @@
+<ng-particles
+    [id]="id"
+    [options]="particlesOptions"
+    [particlesInit]="particlesInit"
+    (particlesLoaded)="particlesLoaded($event)"
+></ng-particles>
+
 <div class="container my-5">
-  <header class="text-center mb-4">
-    <img src="assets/images/minha-foto.jpeg" alt="Minha Foto" class="img-fluid rounded-circle mb-3" />
-    <h1 class="display-4 text-primary">{{ title }}</h1>
+  <header class="text-center mb-5">
+    <img src="assets/images/minha-foto.jpeg" alt="Minha Foto" class="img-fluid rounded-circle profile-img mb-4" />
+    <h1 class="display-4 modern-title">{{ title }}</h1>
   </header>
 
-  <section class="about mb-4">
-    <h2 class="display-5 mb-3">Sobre Mim</h2>
+  <section class="about mb-5" data-aos="fade-up">
+    <h2 class="display-5 section-title">Sobre Mim</h2>
     <p class="lead">{{ about }}</p>
   </section>
 
-  <section class="experience mb-4">
-    <h2 class="display-5 mb-3">Experiência</h2>
+  <section class="experience mb-5" data-aos="fade-up" data-aos-delay="100">
+    <h2 class="display-5 section-title">Experiência</h2>
     <ul class="list-unstyled">
-      <li *ngFor="let job of experience" class="mb-4 border-bottom pb-2">
+      <li *ngFor="let job of experience" class="experience-item">
         <h3 class="h4">{{ job.position }}</h3>
         <p><strong>{{ job.company }}</strong> - {{ job.period }}</p>
         <p>{{ job.description }}</p>
@@ -20,17 +27,18 @@
     </ul>
   </section>
 
-  <section class="skills mb-4">
-    <h2 class="display-5 mb-3">Habilidades</h2>
+  <section class="skills mb-5" data-aos="fade-up" data-aos-delay="200">
+    <h2 class="display-5 section-title">Habilidades</h2>
     <div class="d-flex flex-wrap gap-3">
-      <div *ngFor="let skill of skills" class="badge bg-primary text-white p-3">
+      <div *ngFor="let skill of skills" class="badge skill-badge">
+        <i class="skill-icon me-2"></i> <!-- Adicione ícones aqui -->
         {{ skill }}
       </div>
     </div>
   </section>
 
-  <section class="contact mb-4">
-    <h2 class="display-5 mb-3">Contato</h2>
+  <section class="contact mb-5" data-aos="fade-up" data-aos-delay="300">
+    <h2 class="display-5 section-title">Contato</h2>
     <p>Email: <a href="mailto:{{ email }}" class="text-primary">{{ email }}</a></p>
     <p>LinkedIn: <a href="{{ linkedin }}" target="_blank" class="text-primary">{{ linkedin }}</a></p>
   </section>

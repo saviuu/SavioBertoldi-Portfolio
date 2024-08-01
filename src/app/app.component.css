@@ -1,25 +1,94 @@
-/* Exemplo de customização de link */
-a:hover {
-  text-decoration: underline;
+/* Fundo sutil e borda ao redor da imagem do perfil */
+.profile-img {
+  border: 5px solid #007bff; /* Azul padrão */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 50%; /* Bordas arredondadas */
 }
 
-/* Exemplo de customização de cor de fundo */
-.badge {
-  border-radius: 0.375rem; /* Borda arredondada */
+/* Efeito hover na imagem */
+.profile-img:hover {
+  transform: scale(1.05); /* Aumenta o tamanho ao passar o mouse */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Sombra mais forte */
 }
 
-/* Exemplo de estilo para a imagem do cabeçalho */
-img {
-  max-width: 150px; /* Ajuste o tamanho da imagem conforme necessário */
-  height: auto; /* Mantém a proporção da imagem */
+/* Estilo global para títulos */
+h1.display-4, h2, h3 {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Fonte moderna */
+  font-weight: 700;
+  color: #f9fcff; /* Cor escura para contraste */
+  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.1); /* Sombra leve */
 }
 
-/* Borda arredondada para a imagem */
-.rounded-circle {
-  border-radius: 50%; /* Torna a imagem circular */
+/* Ajuste para a imagem do cabeçalho */
+header img {
+  max-width: 150px; /* Ajuste conforme necessário */
+  width: 100%;
+  height: auto;
 }
 
-/* Margem inferior para espaçamento */
-.mb-3 {
-  margin-bottom: 1rem; /* Ajusta o espaçamento inferior */
+/* Efeito de gradiente no cabeçalho */
+header {
+  background: linear-gradient(135deg, rgba(0, 123, 255, 0.5), rgba(0, 255, 255, 0.5));
+  padding: 20px;
+  border-radius: 10px; /* Bordas arredondadas */
+}
+
+/* Estilo do título principal */
+h1.modern-title {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+  color: #ffffff;
+  text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.2); /* Sombra leve */
+}
+
+/* Estilo das seções */
+section {
+  margin-top: 20px;
+}
+
+/* Estilo das seções */
+.section-title {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 600;
+  color: #ffffff; /* Cor escura para contraste */
+  border-bottom: 2px solid #ffffff; /* Linha embaixo do título */
+  padding-bottom: 10px;
+}
+
+/* Estilo dos itens de experiência */
+.experience-item {
+  border-bottom: 1px solid #e9ecef;
+  padding-bottom: 15px;
+  margin-bottom: 15px;
+}
+
+/* Estilo das habilidades */
+.skills .skill-badge {
+  background: #007bff; /* Azul padrão */
+  color: #fff;
+  transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.375rem;
+  padding: 0.75rem 1.5rem; /* Ajuste de padding */
+  font-size: 1rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra leve */
+}
+
+/* Efeito hover para habilidades */
+.skills .skill-badge:hover {
+  background: #0056b3; /* Azul escuro ao passar o mouse */
+  transform: scale(1.05); /* Leve aumento no tamanho */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Sombra mais forte */
+}
+
+/* Configurações para o fundo animado */
+.particles-js {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* Fica atrás do conteúdo */
 }
