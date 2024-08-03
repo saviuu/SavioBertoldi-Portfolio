@@ -14,7 +14,7 @@ import { loadSlim } from 'tsparticles-slim';
   standalone: true,
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  imports: [CommonModule, NgParticlesModule ]
+  imports: [CommonModule, NgParticlesModule]
 })
 export class AppComponent implements OnInit {
   title = APP_TEXT.title;
@@ -28,18 +28,34 @@ export class AppComponent implements OnInit {
 
   particlesOptions = ParticlesOptions;
 
-  ngOnInit() {
+  // Estado das seções
+  sectionVisibility: { [key: string]: boolean } = {
+    about: true,
+    experience: true,
+    skills: true,
+    contact: true
+  };
 
+  ngOnInit() {
     AOS.init(); // Inicializa o AOS
+  }
+
+  toggleSection(section: string): void {
+    if (this.sectionVisibility.hasOwnProperty(section)) {
+      this.sectionVisibility[section] = !this.sectionVisibility[section];
+    }
+  }
+
+  isSectionVisible(section: string): boolean {
+    return this.sectionVisibility[section] || false;
   }
 
   particlesLoaded(container: Container): void {
     console.log(container);
-}
+  }
 
-async particlesInit(engine: Engine): Promise<void> {
-  console.log(engine);
-  //await loadFull(engine);
-  await loadSlim(engine);
-}
+  async particlesInit(engine: Engine): Promise<void> {
+    console.log(engine);
+    await loadSlim(engine, true);
+  }
 }

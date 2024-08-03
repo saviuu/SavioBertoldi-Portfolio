@@ -11,7 +11,7 @@ export const ParticlesOptions = {
       events: {
           onClick: {
               enable: true,
-              mode: ClickMode.push,
+              mode: ClickMode.repulse,
           },
           onHover: {
               enable: true,
@@ -37,7 +37,7 @@ export const ParticlesOptions = {
           color: "#ffffff",
           distance: 150,
           enable: true,
-          opacity: 0.5,
+          opacity: 0.3,
           width: 1,
       },
       move: {
@@ -53,7 +53,7 @@ export const ParticlesOptions = {
       number: {
           density: {
               enable: true,
-              area: 800,
+              area: 1100,
           },
           value: 80,
       },

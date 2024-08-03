@@ -12,34 +12,62 @@
   </header>
 
   <section class="about mb-5" data-aos="fade-up">
-    <h2 class="display-5 section-title">Sobre Mim</h2>
-    <p class="lead">{{ about }}</p>
+    <div class="section-header">
+      <h2 class="display-5 section-title">Sobre Mim</h2>
+      <button (click)="toggleSection('about')" class="toggle-btn">
+        <i class="fas" [ngClass]="{'fa-chevron-down': !isSectionVisible('about'), 'fa-chevron-up': isSectionVisible('about')}"></i>
+      </button>
+    </div>
+    <div class="section-content" [ngClass]="{'show': isSectionVisible('about')}">
+      <p class="lead">{{ about }}</p>
+    </div>
   </section>
 
   <section class="experience mb-5" data-aos="fade-up" data-aos-delay="100">
-    <h2 class="display-5 section-title">Experiência</h2>
-    <ul class="list-unstyled">
-      <li *ngFor="let job of experience" class="experience-item">
-        <h3 class="h4">{{ job.position }}</h3>
-        <p><strong>{{ job.company }}</strong> - {{ job.period }}</p>
-        <p>{{ job.description }}</p>
-      </li>
-    </ul>
+    <div class="section-header">
+      <h2 class="display-5 section-title">Experiência</h2>
+      <button (click)="toggleSection('experience')" class="toggle-btn">
+        <i class="fas" [ngClass]="{'fa-chevron-down': !isSectionVisible('experience'), 'fa-chevron-up': isSectionVisible('experience')}"></i>
+      </button>
+    </div>
+    <div class="section-content" [ngClass]="{'show': isSectionVisible('experience')}">
+      <ul class="list-unstyled">
+        <li *ngFor="let job of experience" class="experience-item">
+          <h3 class="h4">{{ job.position }}</h3>
+          <p><strong>{{ job.company }}</strong> - {{ job.period }}</p>
+          <p>{{ job.description }}</p>
+        </li>
+      </ul>
+    </div>
   </section>
 
   <section class="skills mb-5" data-aos="fade-up" data-aos-delay="200">
-    <h2 class="display-5 section-title">Habilidades</h2>
-    <div class="d-flex flex-wrap gap-3">
-      <div *ngFor="let skill of skills" class="badge skill-badge">
-        <i class="skill-icon me-2"></i> <!-- Adicione ícones aqui -->
-        {{ skill }}
+    <div class="section-header">
+      <h2 class="display-5 section-title">Habilidades</h2>
+      <button (click)="toggleSection('skills')" class="toggle-btn">
+        <i class="fas" [ngClass]="{'fa-chevron-down': !isSectionVisible('skills'), 'fa-chevron-up': isSectionVisible('skills')}"></i>
+      </button>
+    </div>
+    <div class="section-content" [ngClass]="{'show': isSectionVisible('skills')}">
+      <div class="d-flex flex-wrap gap-3">
+        <div *ngFor="let skill of skills" class="badge skill-badge">
+          <i class="skill-icon me-2"></i> <!-- Adicione ícones aqui -->
+          {{ skill }}
+        </div>
       </div>
     </div>
   </section>
 
   <section class="contact mb-5" data-aos="fade-up" data-aos-delay="300">
-    <h2 class="display-5 section-title">Contato</h2>
-    <p>Email: <a href="mailto:{{ email }}" class="text-primary">{{ email }}</a></p>
-    <p>LinkedIn: <a href="{{ linkedin }}" target="_blank" class="text-primary">{{ linkedin }}</a></p>
+    <div class="section-header">
+      <h2 class="display-5 section-title">Contato</h2>
+      <button (click)="toggleSection('contact')" class="toggle-btn">
+        <i class="fas" [ngClass]="{'fa-chevron-down': !isSectionVisible('contact'), 'fa-chevron-up': isSectionVisible('contact')}"></i>
+      </button>
+    </div>
+    <div class="section-content" [ngClass]="{'show': isSectionVisible('contact')}">
+      <p>Email: <a href="mailto:{{ email }}" class="text-primary">{{ email }}</a></p>
+      <p>LinkedIn: <a href="{{ linkedin }}" target="_blank" class="text-primary">{{ linkedin }}</a></p>
+    </div>
   </section>
 </div>

@@ -1,8 +1,13 @@
-/* Fundo sutil e borda ao redor da imagem do perfil */
+/* Garante que o container da imagem e o próprio estilo da imagem estejam corretos */
 .profile-img {
-  border: 5px solid #007bff; /* Azul padrão */
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 5px solid #ffffff10; /* Azul padrão */
   border-radius: 50%; /* Bordas arredondadas */
+  max-width: 150px; /* Ajuste conforme necessário */
+  width: 100%;
+  height: auto;
+  display: block; /* Garante que a imagem seja exibida como bloco */
+  margin: 0 auto; /* Centraliza a imagem */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 /* Efeito hover na imagem */
@@ -12,23 +17,29 @@
 }
 
 /* Estilo global para títulos */
-h1.display-4, h2, h3 {
+h1.display-4, h2.display-5, h3 {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Fonte moderna */
   font-weight: 700;
   color: #f9fcff; /* Cor escura para contraste */
   text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.1); /* Sombra leve */
 }
 
+p {
+  font-family: 'Roboto', sans-serif; /* Fonte moderna */
+  font-weight: 400; /* Peso normal */
+  color: #e0e0e0; /* Cor mais clara para texto */
+  line-height: 1.6; /* Altura da linha para melhor legibilidade */
+}
+
 /* Ajuste para a imagem do cabeçalho */
 header img {
-  max-width: 150px; /* Ajuste conforme necessário */
-  width: 100%;
-  height: auto;
+  display: block;
+  margin: 0 auto;
 }
 
 /* Efeito de gradiente no cabeçalho */
 header {
-  background: linear-gradient(135deg, rgba(0, 123, 255, 0.5), rgba(0, 255, 255, 0.5));
+  background: linear-gradient(135deg, rgba(89, 0, 255, 0.027), rgba(135, 18, 182, 0.438));
   padding: 20px;
   border-radius: 10px; /* Bordas arredondadas */
 }
@@ -44,28 +55,51 @@ h1.modern-title {
 /* Estilo das seções */
 section {
   margin-top: 20px;
+  overflow: hidden; /* Garante que o conteúdo não transborde durante a animação */
+  transition: max-height 0.5s ease, opacity 0.5s ease; /* Ajuste a duração conforme desejado */
 }
+
+/* Quando a seção está oculta */
+section.hidden {
+  max-height: 0; /* Oculta a seção */
+  opacity: 0; /* Torna a seção invisível */
+}
+
 
 /* Estilo das seções */
 .section-title {
   font-family: 'Roboto', sans-serif;
   font-weight: 600;
-  color: #ffffff; /* Cor escura para contraste */
-  border-bottom: 2px solid #ffffff; /* Linha embaixo do título */
+  color: #343a40; /* Cor escura para contraste */
+  border-bottom: 2px solid #bdb0b0; /* Linha embaixo do título */
   padding-bottom: 10px;
 }
 
 /* Estilo dos itens de experiência */
 .experience-item {
-  border-bottom: 1px solid #e9ecef;
+  position: relative;
+  border-bottom: 1px solid #ffffff;
   padding-bottom: 15px;
   margin-bottom: 15px;
+  background: rgba(255, 255, 255, 0.1); /* Fundo semi-transparente */
+  backdrop-filter: blur(10px); /* Desfoque de fundo */
+  border-radius: 10px; /* Bordas arredondadas */
+  padding: 20px; /* Padding para espaçamento interno */
+}
+
+.experience-item h3 {
+  margin-top: 0;
+  font-weight: 700;
+}
+
+.experience-item p {
+  margin-bottom: 10px;
 }
 
 /* Estilo das habilidades */
 .skills .skill-badge {
-  background: #007bff; /* Azul padrão */
-  color: #fff;
+  background: #451585; /* Azul padrão */
+  color: #ffffff;
   transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
   display: flex;
   align-items: center;
@@ -78,17 +112,100 @@ section {
 
 /* Efeito hover para habilidades */
 .skills .skill-badge:hover {
-  background: #0056b3; /* Azul escuro ao passar o mouse */
+  background: #ffffff; /* Azul escuro ao passar o mouse */
+  color: black;
   transform: scale(1.05); /* Leve aumento no tamanho */
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Sombra mais forte */
 }
 
 /* Configurações para o fundo animado */
 .particles-js {
-  position: absolute;
+  position: absolute; /* Faz com que o fundo de partículas fique atrás do conteúdo */
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: -1; /* Fica atrás do conteúdo */
+  z-index: -1; /* Coloca atrás do conteúdo */
+  pointer-events: none; /* Impede que o contêiner das partículas capture eventos do mouse */
+}
+
+/* Garante que o componente de partículas ocupe o fundo inteiro */
+ng-particles {
+  position: fixed; /* Fixado no fundo */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* Coloca atrás do conteúdo */
+}
+
+/* Estilo do botão de toggle */
+.toggle-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.5rem;
+  color: #f9fcff;
+  transition: color 0.3s ease, transform 0.3s ease;
+  position: relative;
+  padding: 0;
+  margin-left: 10px;
+}
+
+/* Adiciona um pseudo-elemento para destaque */
+.toggle-btn::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background-color: #f9fcff;
+  transition: width 0.3s ease, left 0.3s ease;
+}
+
+/* Efeito hover no botão */
+.toggle-btn:hover {
+  color: #e0e0e0;
+  transform: scale(1.1);
+}
+
+/* Efeito hover no pseudo-elemento */
+.toggle-btn:hover::after {
+  width: 100%;
+  left: 0;
+}
+
+/* Animação para esconder e mostrar o conteúdo das seções */
+.section-content {
+  transition: max-height 0.3s ease-out, opacity 0.3s ease-out;
+  overflow: hidden;
+  max-height: 1000px; /* Ajuste conforme necessário */
+  opacity: 1;
+}
+
+.section-content.d-none {
+  max-height: 0;
+  opacity: 0;
+}
+
+/* Animação para esconder e mostrar o conteúdo das seções */
+.section-content {
+  overflow: hidden;
+  transition: max-height 0.6s ease-out, opacity 0.6s ease-out;
+  max-height: 0; /* Inicialmente oculto */
+  opacity: 0;
+}
+
+.section-content.show {
+  max-height: 1000px; /* Ajuste conforme necessário */
+  opacity: 1;
+}
+
+/* Estilo geral para todos os textos */
+body, p, li, .experience-item, .skills .skill-badge {
+  background: rgba(255, 255, 255, 0.055); /* Fundo semi-transparente */
+  backdrop-filter: blur(10px); /* Desfoque de fundo */
+  border-radius: 10px; /* Bordas arredondadas */
+  padding: 10px; /* Padding para espaçamento interno */
 }
