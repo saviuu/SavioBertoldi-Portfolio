@@ -19,9 +19,9 @@
 /* Estilo global para títulos */
 h1.display-4, h2.display-5, h3 {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Fonte moderna */
-  font-weight: 700;
-  color: #f9fcff; /* Cor escura para contraste */
-  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.1); /* Sombra leve */
+  font-weight: 300;
+  color: #f9fcffda; /* Cor escura para contraste */
+  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.11); /* Sombra leve */
 }
 
 p {
@@ -47,7 +47,7 @@ header {
 /* Estilo do título principal */
 h1.modern-title {
   font-family: 'Roboto', sans-serif;
-  font-weight: 700;
+  font-weight: 500;
   color: #ffffff;
   text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.2); /* Sombra leve */
 }
@@ -69,7 +69,7 @@ section.hidden {
 /* Estilo das seções */
 .section-title {
   font-family: 'Roboto', sans-serif;
-  font-weight: 600;
+  font-weight: 500;
   color: #343a40; /* Cor escura para contraste */
   border-bottom: 2px solid #bdb0b0; /* Linha embaixo do título */
   padding-bottom: 10px;
@@ -82,9 +82,9 @@ section.hidden {
   padding-bottom: 15px;
   margin-bottom: 15px;
   background: rgba(255, 255, 255, 0.1); /* Fundo semi-transparente */
-  backdrop-filter: blur(10px); /* Desfoque de fundo */
+  backdrop-filter: blur(20px); /* Desfoque de fundo */
   border-radius: 10px; /* Bordas arredondadas */
-  padding: 20px; /* Padding para espaçamento interno */
+  padding: 10px; /* Padding para espaçamento interno */
 }
 
 .experience-item h3 {
@@ -176,20 +176,12 @@ ng-particles {
   left: 0;
 }
 
-/* Animação para esconder e mostrar o conteúdo das seções */
-.section-content {
-  transition: max-height 0.3s ease-out, opacity 0.3s ease-out;
-  overflow: hidden;
-  max-height: 1000px; /* Ajuste conforme necessário */
-  opacity: 1;
-}
-
 .section-content.d-none {
   max-height: 0;
   opacity: 0;
 }
 
-/* Animação para esconder e mostrar o conteúdo das seções */
+/* Estilos para a seção conteúdo */
 .section-content {
   overflow: hidden;
   transition: max-height 0.6s ease-out, opacity 0.6s ease-out;
@@ -198,14 +190,201 @@ ng-particles {
 }
 
 .section-content.show {
-  max-height: 1000px; /* Ajuste conforme necessário */
+  max-height: 5000px; /* Defina um valor inicial alto */
   opacity: 1;
+}
+
+/* Estilo geral dos cards de contato */
+.contact-card {
+  background: rgba(255, 255, 255, 0.1); /* Fundo semi-transparente */
+  border-radius: 8px; /* Bordas arredondadas */
+  padding: 15px; /* Padding interno */
+  margin: 10px; /* Espaçamento entre os cards */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra leve */
+  text-align: center; /* Centraliza o texto */
+  transition: background 0.3s ease, transform 0.3s ease; /* Transições suaves */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Efeito hover nos cards */
+.contact-card:hover {
+  background: rgba(255, 255, 255, 0.192); /* Fundo mais claro ao passar o mouse */
+  color: #000000;
+  transform: translateY(-5px); /* Leve elevação ao passar o mouse */
+}
+
+/* Estilo dos links dentro dos cards */
+.contact-card a {
+  text-decoration: none; /* Remove o sublinhado */
+  color: #ffffff; /* Cor do texto */
+  font-weight: 500; /* Peso do texto */
+  display: block; /* Faz com que o link ocupe toda a área do card */
+  transition: color 0.3s ease; /* Transição suave para a cor */
+}
+
+/* Efeito hover nos links */
+.contact-card a:hover {
+  color: #ffffff; /* Cor do texto ao passar o mouse */
+}
+
+/* Flexbox para exibir os cards lado a lado */
+.contact-cards-container {
+  display: flex;
+  flex-wrap: wrap; /* Permite que os cards quebrem linha se necessário */
+  justify-content: center; /* Centraliza os cards horizontalmente */
+}
+
+/* Estilo geral dos cards de projetos */
+.project-card {
+  background: rgba(255, 255, 255, 0.1); /* Fundo semi-transparente */
+  border-radius: 8px; /* Bordas arredondadas */
+  padding: 15px; /* Padding interno */
+  margin: 10px; /* Espaçamento entre os cards */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra leve */
+  transition: background 0.3s ease, transform 0.3s ease; /* Transições suaves */
+}
+
+/* Efeito hover nos cards de projetos */
+.project-card:hover {
+  background: rgba(255, 255, 255, 0.192); /* Fundo mais claro ao passar o mouse */
+  color: #000000;
+  transform: translateY(-5px); /* Leve elevação ao passar o mouse */
+}
+
+/* Estilo do título dos projetos */
+.project-card h3 {
+  margin: 0 0 10px;
+  font-size: 1.25rem;
+}
+
+/* Estilo da descrição dos projetos */
+.project-card p {
+  margin: 0;
+}
+
+/* Flexbox para exibir os cards de projetos lado a lado */
+.projects-container {
+  display: flex;
+  flex-wrap: wrap; /* Permite que os cards quebrem linha se necessário */
+  justify-content: center; /* Centraliza os cards horizontalmente */
+}
+
+/* Estilo para o botão de mostrar/ocultar o card lateral */
+.toggle-navigation-box {
+  position: fixed;
+  top: 5px; /* Ajuste conforme necessário */
+  right: 5px;
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  color: #f9fcff;
+  font-size: 1.2rem;
+  cursor: pointer;
+  border-radius: 25%;
+  padding: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 1000; /* Para garantir que o botão fique acima de outros elementos */
+}
+
+/* Estilo para o box de navegação lateral no mobile */
+.navigation-box {
+  position: fixed;
+  top: 50%;
+  right: -250px; /* Inicialmente fora da tela */
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.1);
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: right 0.3s ease;
+  z-index: 1000;
+}
+.navigation-box ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.navigation-box li {
+  margin-bottom: 10px;
+}
+
+.navigation-box button {
+  background: none;
+  border: none;
+  color: #f9fcff;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.navigation-box button:hover {
+  color: #e0e0e0;
+  transform: scale(1.1);
+}
+
+/* Estilo da barra de navegação para dispositivos móveis */
+.mobile-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.8); /* Fundo semi-transparente */
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px; /* Altura da barra */
+  z-index: 1000; /* Garantir que fique acima do conteúdo */
+  overflow: hidden; /* Evita rolagem horizontal */
+  padding: 0 10px; /* Padding horizontal */
+}
+
+.mobile-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.mobile-nav li {
+  margin: 0 10px;
+}
+
+.mobile-nav li:hover {
+  cursor: pointer;
+  text-decoration: underline; /* Adiciona um efeito de sublinhado ao passar o mouse */
+}
+
+.mobile-nav li.active {
+  font-weight: bold; /* Destaque para o item ativo */
+}
+
+/* Adapte a altura do conteúdo da seção para evitar sobreposição */
+body {
+  padding-top: 50px; /* Altura da barra de navegação */
+}
+
+.navigation-box.show {
+  right: 20px; /* Posiciona o box visível */
+}
+
+@media (min-width: 1640px) {
+  .toggle-navigation-box {
+    display: none; /* Oculta o botão em telas maiores */
+  }
+  .navigation-box {
+    right: 20px; /* Mantém o box visível em telas maiores */
+  }
 }
 
 /* Estilo geral para todos os textos */
 body, p, li, .experience-item, .skills .skill-badge {
   background: rgba(255, 255, 255, 0.055); /* Fundo semi-transparente */
-  backdrop-filter: blur(10px); /* Desfoque de fundo */
+  backdrop-filter: blur(50px); /* Desfoque de fundo */
   border-radius: 10px; /* Bordas arredondadas */
-  padding: 10px; /* Padding para espaçamento interno */
+  padding: 15px; /* Padding para espaçamento interno */
 }
