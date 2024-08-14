@@ -1,17 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { APP_TEXT } from './constants';
 import AOS from 'aos';
 import 'aos/dist/aos.css'; // Importa o CSS do AOS
 import { CommonModule } from '@angular/common';
 
-import { NgParticlesModule } from 'ng-particles';
 import { ParticlesOptions } from './particles/particles.config';
 import { Container, Engine } from 'tsparticles-engine';
 import { loadSlim } from 'tsparticles-slim';
 import { ProjectService } from './services/project.service';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { ProjectModel } from './models/Project.model';
 import { animate, state, style, transition, trigger } from '@angular/animations';
+import { lastValueFrom } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -37,14 +36,17 @@ export class AppComponent implements OnInit {
   skills = APP_TEXT.skills;
   email = APP_TEXT.email;
   linkedin = APP_TEXT.linkedIn;
+  instagram = APP_TEXT.instagram;
 
   id = "tsparticles";
 
   projects: ProjectModel[] = [];
   errorMessage: string | null = null;
-  isNavigationBoxVisible = false;
+  isNavigationBoxVisible = true;
 
   particlesOptions = ParticlesOptions;
+
+  isLoaded = false;
 
   // Estado das seções
   sectionVisibility: { [key: string]: boolean } = {
@@ -62,27 +64,29 @@ export class AppComponent implements OnInit {
     { id: 'contact', name: 'Contato' }
   ];
 
-  constructor(private _projectService: ProjectService){}
+  constructor(private _projectService: ProjectService, private _changeDetector: ChangeDetectorRef){}
 
   async ngOnInit() {
     AOS.init(); // Inicializa o AOS
+
     await this.loadProjects();
+    console.log(this.projects);
+    console.log(this.isLoaded);
   }
 
   async loadProjects() {
-    this._projectService.getProjects().subscribe({
-      next: (data) => {
-        this.projects = data;
-      },
-      error: (error) => {
-        // Erro já tratado no serviço com um toast
-        console.error(error);
-      }
-    });
+    try {
+      this.projects = await lastValueFrom(this._projectService.getProjects());
+      console.log(this.projects);
+    } catch (error) {
+      console.error(error);
+    }
+
+    this.isLoaded = true;
+    this._changeDetector.detectChanges(); // Força a detecção de mudanças
   }
 
   toggleNavigationBox() {
-    console.log('caiu aqui')
     if(this.isNavigationBoxVisible) {
       this.isNavigationBoxVisible = false;
     } else {
@@ -90,9 +94,16 @@ export class AppComponent implements OnInit {
     }
   }
 
-  toggleSection(section: string): void {
-    if (this.sectionVisibility.hasOwnProperty(section)) {
-      this.sectionVisibility[section] = !this.sectionVisibility[section];
+  toggleSection(section: string) {
+    const currentState = this.isSectionVisible(section);
+    this.sectionVisibility[section] = !currentState;
+
+    const sectionContent = document.querySelector(`.${section} .section-content`);
+
+    if (sectionContent) {
+      // Alterna a classe entre 'hidden' e 'show'
+      sectionContent.classList.toggle('show', !currentState);
+      sectionContent.classList.toggle('hidden', currentState);
     }
   }
 

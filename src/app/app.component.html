@@ -69,12 +69,11 @@
     </div>
     <div class="section-content" [ngClass]="{'show': isSectionVisible('projects')}">
       <div class="projects-container">
-          <!-- Looping sobre os projetos -->
-           <div *ngFor="let project of projects" class="project-card">
-              <h3>{{ project.name }}</h3>
-              <p>{{ project.description }}</p>
-              <a [href]="project.url" target="_blank">Ver Projeto</a>
-           </div>
+        <div *ngFor="let project of projects" class="project-card">
+          <h3>{{ project.name }}</h3>
+          <p>{{ project.description }}</p>
+          <a class="project-link" [href]="project.url" target="_blank">Ver Projeto</a>
+        </div>
       </div>
     </div>
   </section>
@@ -89,29 +88,31 @@
     <div class="section-content" [ngClass]="{'show': isSectionVisible('contact')}">
       <div class="contact-cards-container">
         <div class="contact-card">
-          <a href="mailto:{{ email }}">{{ email }}</a>
+          <a href="mailto:{{ email }}">Email</a>
         </div>
         <div class="contact-card">
-          <a href="{{ linkedin }}" target="_blank">{{ linkedin }}</a>
+          <a href="{{ linkedin }}" target="_blank">LinkedIn</a>
+        </div>
+        <div class="contact-card">
+          <a href="{{ instagram }}" target="_blank">Instagram</a>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Botão para exibir/ocultar o card lateral -->
-<button class="toggle-navigation-box" (click)="toggleNavigationBox()">
-  <i class="fas fa-bars"></i>
-</button>
+  <button class="toggle-navigation-box" (click)="toggleNavigationBox()">
+    <i class="fas fa-bars"></i>
+  </button>
 
   <!-- Box de navegação rápida -->
-<div [ngClass]="{'navigation-box': true, 'show': isNavigationBoxVisible}">
-  <ul>
-    <li><button (click)="scrollToSection('about')">Sobre Mim</button></li>
-    <li><button (click)="scrollToSection('experience')">Experiência</button></li>
-    <li><button (click)="scrollToSection('skills')">Habilidades</button></li>
-    <li><button (click)="scrollToSection('projects')">Projetos</button></li>
-    <li><button (click)="scrollToSection('contact')">Contato</button></li>
-  </ul>
-</div>
-
+  <div [ngClass]="{'navigation-box': true, 'show': isNavigationBoxVisible}">
+    <ul>
+      <li><button (click)="scrollToSection('about')">Sobre Mim</button></li>
+      <li><button (click)="scrollToSection('experience')">Experiência</button></li>
+      <li><button (click)="scrollToSection('skills')">Habilidades</button></li>
+      <li><button (click)="scrollToSection('projects')">Projetos</button></li>
+      <li><button (click)="scrollToSection('contact')">Contato</button></li>
+    </ul>
+  </div>
 </div>

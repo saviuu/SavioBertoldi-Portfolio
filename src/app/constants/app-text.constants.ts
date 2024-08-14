@@ -4,6 +4,7 @@ export const APP_TEXT = {
   title: 'Portfólio Sávio Bertoldi',
   email: 'savio.b09@gmail.com',
   linkedIn: 'https://www.linkedin.com/in/sávio-bertoldi-2b09a51b9/',
+  instagram: 'https://www.instagram.com/saviobertoldii/',
   about:
                   `Atualmente, atuo como Desenvolvedor Web Full-stack, trazendo uma sólida expertise em
                     Angular e TypeScript para o desenvolvimento Front-end, enquanto foco intensamente no

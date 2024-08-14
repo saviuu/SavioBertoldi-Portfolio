@@ -47,13 +47,13 @@ export const ParticlesOptions = {
               default: OutMode.bounce,
           },
           random: false,
-          speed: 6,
+          speed: 4,
           straight: false,
       },
       number: {
           density: {
               enable: true,
-              area: 1100,
+              area: 1200,
           },
           value: 80,
       },

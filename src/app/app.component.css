@@ -1,19 +1,20 @@
-/* Garante que o container da imagem e o próprio estilo da imagem estejam corretos */
+/* Estilo aprimorado da imagem de perfil */
 .profile-img {
-  border: 5px solid #ffffff10; /* Azul padrão */
-  border-radius: 50%; /* Bordas arredondadas */
-  max-width: 150px; /* Ajuste conforme necessário */
+  border: 2px solid rgba(255, 255, 255, 0.2); /* Borda sutil e translúcida */
+  border-radius: 50%; /* Mantém as bordas arredondadas */
+  max-width: 180px; /* Um pouco maior para destacar */
   width: 100%;
   height: auto;
-  display: block; /* Garante que a imagem seja exibida como bloco */
-  margin: 0 auto; /* Centraliza a imagem */
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: block;
+  margin: 0 auto;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
-/* Efeito hover na imagem */
+/* Efeito hover mais suave e elegante */
 .profile-img:hover {
-  transform: scale(1.05); /* Aumenta o tamanho ao passar o mouse */
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Sombra mais forte */
+  transform: scale(1.08); /* Aumento mais suave */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4); /* Sombra mais suave e pronunciada */
+  border-color: rgba(255, 255, 255, 0.3); /* Mudança sutil na cor da borda */
 }
 
 /* Estilo global para títulos */
@@ -37,19 +38,20 @@ header img {
   margin: 0 auto;
 }
 
-/* Efeito de gradiente no cabeçalho */
+/* Ajuste no cabeçalho para mais harmonia */
 header {
-  background: linear-gradient(135deg, rgba(89, 0, 255, 0.027), rgba(135, 18, 182, 0.438));
-  padding: 20px;
-  border-radius: 10px; /* Bordas arredondadas */
+  background: linear-gradient(135deg, rgba(60, 0, 150, 0.1), rgba(120, 40, 180, 0.2));
+  padding: 30px;
+  border-radius: 15px; /* Bordas mais arredondadas */
 }
 
-/* Estilo do título principal */
+/* Estilo do título principal com mais elegância */
 h1.modern-title {
   font-family: 'Roboto', sans-serif;
-  font-weight: 500;
+  font-weight: 600;
   color: #ffffff;
-  text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.2); /* Sombra leve */
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); /* Sombra mais suave */
+  margin-bottom: 20px;
 }
 
 /* Estilo das seções */
@@ -64,7 +66,6 @@ section.hidden {
   max-height: 0; /* Oculta a seção */
   opacity: 0; /* Torna a seção invisível */
 }
-
 
 /* Estilo das seções */
 .section-title {
@@ -112,6 +113,26 @@ section.hidden {
 
 /* Efeito hover para habilidades */
 .skills .skill-badge:hover {
+  background: #ffffff; /* Azul escuro ao passar o mouse */
+  color: black;
+  transform: scale(1.05); /* Leve aumento no tamanho */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Sombra mais forte */
+}
+
+.project-link{
+  background: #321554b7; /* Azul padrão */
+  color: #ffffff;
+  transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  align-items: center;
+  justify-content: left;
+  border-radius: 0.375rem;
+  padding: 0.75rem 1.5rem; /* Ajuste de padding */
+  font-size: 1rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra leve */
+  text-decoration: none;
+}
+
+.project-link:hover {
   background: #ffffff; /* Azul escuro ao passar o mouse */
   color: black;
   transform: scale(1.05); /* Leve aumento no tamanho */
@@ -239,7 +260,7 @@ ng-particles {
 /* Estilo geral dos cards de projetos */
 .project-card {
   background: rgba(255, 255, 255, 0.1); /* Fundo semi-transparente */
-  border-radius: 8px; /* Bordas arredondadas */
+  border-radius: 10px; /* Bordas arredondadas */
   padding: 15px; /* Padding interno */
   margin: 10px; /* Espaçamento entre os cards */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra leve */
@@ -249,142 +270,71 @@ ng-particles {
 /* Efeito hover nos cards de projetos */
 .project-card:hover {
   background: rgba(255, 255, 255, 0.192); /* Fundo mais claro ao passar o mouse */
-  color: #000000;
   transform: translateY(-5px); /* Leve elevação ao passar o mouse */
 }
 
-/* Estilo do título dos projetos */
-.project-card h3 {
-  margin: 0 0 10px;
-  font-size: 1.25rem;
-}
-
-/* Estilo da descrição dos projetos */
-.project-card p {
-  margin: 0;
-}
-
-/* Flexbox para exibir os cards de projetos lado a lado */
-.projects-container {
-  display: flex;
-  flex-wrap: wrap; /* Permite que os cards quebrem linha se necessário */
-  justify-content: center; /* Centraliza os cards horizontalmente */
-}
-
-/* Estilo para o botão de mostrar/ocultar o card lateral */
+/* Estilo para os botões de navegação lateral */
 .toggle-navigation-box {
   position: fixed;
-  top: 5px; /* Ajuste conforme necessário */
-  right: 5px;
-  background: rgba(255, 255, 255, 0.1);
-  border: none;
-  color: #f9fcff;
-  font-size: 1.2rem;
-  cursor: pointer;
-  border-radius: 25%;
-  padding: 5px;
-  padding-left: 10px;
-  padding-right: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  z-index: 1000; /* Para garantir que o botão fique acima de outros elementos */
-}
-
-/* Estilo para o box de navegação lateral no mobile */
-.navigation-box {
-  position: fixed;
+  right: 20px;
   top: 50%;
-  right: -250px; /* Inicialmente fora da tela */
   transform: translateY(-50%);
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(135, 18, 182, 0.438);
+  color: #f9fcff;
+  border: none;
   padding: 10px;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  transition: right 0.3s ease;
+  border-radius: 20%;
+  cursor: pointer;
   z-index: 1000;
 }
+
+/* Estilo para o box de navegação lateral */
+.navigation-box {
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 250px;
+  height: 100%;
+  background: rgba(42, 8, 70, 0.849); /* Cor escura com leve transparência */
+  color: #f9fcff;
+  box-shadow: rgba(28, 5, 46, 0.8);
+  transform: translateX(100%);
+  transition: transform 0.3s ease;
+  z-index: 999;
+  padding: 20px;
+}
+
+/* Exibe o box de navegação quando visível */
+.navigation-box.show {
+  transform: translateX(0);
+}
+
+/* Estilo para os botões de navegação dentro do box */
 .navigation-box ul {
-  list-style: none;
+  list-style-type: none;
   padding: 0;
   margin: 0;
 }
 
 .navigation-box li {
-  margin-bottom: 10px;
+  margin-bottom: 15px;
 }
 
 .navigation-box button {
   background: none;
   border: none;
   color: #f9fcff;
-  font-size: 0.9rem;
+  font-size: 1.25rem;
   cursor: pointer;
-  transition: color 0.3s ease, transform 0.3s ease;
-}
-
-.navigation-box button:hover {
-  color: #e0e0e0;
-  transform: scale(1.1);
-}
-
-/* Estilo da barra de navegação para dispositivos móveis */
-.mobile-nav {
-  position: fixed;
-  top: 0;
-  left: 0;
+  text-align: left;
+  display: block;
   width: 100%;
-  background: rgba(0, 0, 0, 0.8); /* Fundo semi-transparente */
-  color: #ffffff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 50px; /* Altura da barra */
-  z-index: 1000; /* Garantir que fique acima do conteúdo */
-  overflow: hidden; /* Evita rolagem horizontal */
-  padding: 0 10px; /* Padding horizontal */
+  padding: 10px;
+  border-radius: 5px;
+  transition: background 0.3s ease;
 }
 
-.mobile-nav ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-}
-
-.mobile-nav li {
-  margin: 0 10px;
-}
-
-.mobile-nav li:hover {
-  cursor: pointer;
-  text-decoration: underline; /* Adiciona um efeito de sublinhado ao passar o mouse */
-}
-
-.mobile-nav li.active {
-  font-weight: bold; /* Destaque para o item ativo */
-}
-
-/* Adapte a altura do conteúdo da seção para evitar sobreposição */
-body {
-  padding-top: 50px; /* Altura da barra de navegação */
-}
-
-.navigation-box.show {
-  right: 20px; /* Posiciona o box visível */
-}
-
-@media (min-width: 1640px) {
-  .toggle-navigation-box {
-    display: none; /* Oculta o botão em telas maiores */
-  }
-  .navigation-box {
-    right: 20px; /* Mantém o box visível em telas maiores */
-  }
-}
-
-/* Estilo geral para todos os textos */
-body, p, li, .experience-item, .skills .skill-badge {
-  background: rgba(255, 255, 255, 0.055); /* Fundo semi-transparente */
-  backdrop-filter: blur(50px); /* Desfoque de fundo */
-  border-radius: 10px; /* Bordas arredondadas */
-  padding: 15px; /* Padding para espaçamento interno */
+/* Efeito hover nos botões de navegação */
+.navigation-box button:hover {
+  background: rgba(135, 18, 182, 0.438);
 }
