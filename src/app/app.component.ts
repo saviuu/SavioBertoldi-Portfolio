@@ -11,6 +11,8 @@ import { ProjectService } from './services/project.service';
 import { ProjectModel } from './models/Project.model';
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { lastValueFrom } from 'rxjs';
+import { GraphQLService } from './graphql/services/graphql.service';
+import { GET_ALL } from './constants/graphql-queries/ProjectsQueries/projects-queries.constants';
 
 @Component({
   selector: 'app-root',
@@ -64,27 +66,30 @@ export class AppComponent implements OnInit {
     { id: 'contact', name: 'Contato' }
   ];
 
-  constructor(private _projectService: ProjectService, private _changeDetector: ChangeDetectorRef){}
+  constructor(private _graphQLService: GraphQLService, private _changeDetector: ChangeDetectorRef){}
 
   async ngOnInit() {
     AOS.init(); // Inicializa o AOS
-
     await this.loadProjects();
-    console.log(this.projects);
-    console.log(this.isLoaded);
   }
 
   async loadProjects() {
-    try {
-      this.projects = await lastValueFrom(this._projectService.getProjects());
-      console.log(this.projects);
-    } catch (error) {
-      console.error(error);
-    }
+    this._graphQLService.query<{ get_projects: ProjectModel[] }>(GET_ALL).subscribe({
+      next: (response) => {
+        this.projects = response?.get_projects;
+
+      },
+      error: (error) => {
+        console.error('Error fetching projects:', error);
+      }
+    });
 
     this.isLoaded = true;
     this._changeDetector.detectChanges(); // Força a detecção de mudanças
   }
+
+
+
 
   toggleNavigationBox() {
     if(this.isNavigationBoxVisible) {
@@ -111,12 +116,7 @@ export class AppComponent implements OnInit {
     return this.sectionVisibility[section] || false;
   }
 
-  particlesLoaded(container: Container): void {
-    console.log(container);
-  }
-
   async particlesInit(engine: Engine): Promise<void> {
-    console.log(engine);
     await loadSlim(engine, true);
   }
 
@@ -130,7 +130,7 @@ export class AppComponent implements OnInit {
         if (element) {
           element.scrollIntoView({ behavior: 'smooth' });
         }
-      }, 300); // Ajuste o tempo se necessário
+      }, 350); // Ajuste o tempo se necessário
     } else {
       // Se a seção já estiver visível, apenas rola até ela
       const element = document.querySelector(`.${section}`);

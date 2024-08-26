@@ -7,6 +7,9 @@ import { CommonModule } from '@angular/common';
 import { NgParticlesModule } from 'ng-particles';
 import { ToastrModule } from 'ngx-toastr';
 import { ProjectService } from './services/project.service';
+import { ApolloModule } from 'apollo-angular';
+import { graphqlProvider } from './graphql.provider';
+
 
 @NgModule({
   declarations: [
@@ -16,11 +19,12 @@ import { ProjectService } from './services/project.service';
     CommonModule,
     BrowserModule,
     NgParticlesModule,
+    ApolloModule,
     HttpClientModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot()
   ],
-  providers: [ProjectService],
+  providers: [ProjectService, graphqlProvider],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

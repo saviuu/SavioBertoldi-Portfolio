@@ -11,6 +11,9 @@ import { ProjectModel } from '../models/Project.model';
 export class ProjectService {
   private apiUrl = 'https://localhost:7046/api/Projects/GetProjects';
 
+  //Controller usado anteriormente para buscar os projetos na API.
+  /** Será usado futuramente para outros fins, já que atualmente as pesquisas são feitas com GraphQL. */
+
   constructor(private http: HttpClient, private toastr: ToastrService) { }
 
   getProjects(): Observable<ProjectModel[]> {
