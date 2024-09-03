@@ -1,7 +1,7 @@
 // src/app/app-text.constants.ts
 
 export const APP_TEXT = {
-  title: 'Portfólio Sávio Bertoldi',
+  title: 'Sávio Bertoldi',
   email: 'savio.b09@gmail.com',
   linkedIn: 'https://www.linkedin.com/in/sávio-bertoldi-2b09a51b9/',
   instagram: 'https://www.instagram.com/saviobertoldii/',

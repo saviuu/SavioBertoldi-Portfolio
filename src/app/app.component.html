@@ -1,40 +1,52 @@
+<!-- Tela de splash com carregamento -->
+<div class="splash-screen" *ngIf="isLoading">
+  <div class="loader"></div>
+</div>
+
 <ng-particles
-    [id]="id"
-    [options]="particlesOptions"
-    [particlesInit]="particlesInit"
+  [id]="id"
+  [options]="particlesOptions"
+  [particlesInit]="particlesInit"
 ></ng-particles>
 
 <div class="container my-5">
-  <header class="text-center mb-5">
-    <img src="assets/images/minha-foto.jpeg" alt="Minha Foto" class="img-fluid rounded-circle profile-img mb-4" />
-    <h1 class="display-4 modern-title">{{ title }}</h1>
+  <header class="text-center mb-5 position-relative">
+    <div class="header-stripes"></div>
+    <div class="header-content">
+      <div class="title-container">
+        <h1 class="display-4 modern-title">{{ 'title' | translate }}</h1>
+      </div>
+      <div class="profile-img-container">
+        <img src="assets/images/minha-foto.jpg" alt="Minha Foto" class="img-fluid profile-img" />
+      </div>
+    </div>
   </header>
 
   <section class="about mb-5" data-aos="fade-up">
     <div class="section-header">
-      <h2 class="display-5 section-title">Sobre Mim</h2>
+      <h2 class="display-5 section-title">{{ 'aboutTitle' | translate }}</h2>
       <button (click)="toggleSection('about')" class="toggle-btn">
         <i class="fas" [ngClass]="{'fa-chevron-down': !isSectionVisible('about'), 'fa-chevron-up': isSectionVisible('about')}"></i>
       </button>
     </div>
     <div class="section-content" [ngClass]="{'show': isSectionVisible('about')}">
-      <p class="lead">{{ about }}</p>
+      <p class="lead">{{ 'about' | translate }}</p>
     </div>
   </section>
 
   <section class="experience mb-5" data-aos="fade-up" data-aos-delay="100">
     <div class="section-header">
-      <h2 class="display-5 section-title">Experiência</h2>
+      <h2 class="display-5 section-title">{{ 'experienceTile' | translate }}</h2>
       <button (click)="toggleSection('experience')" class="toggle-btn">
         <i class="fas" [ngClass]="{'fa-chevron-down': !isSectionVisible('experience'), 'fa-chevron-up': isSectionVisible('experience')}"></i>
       </button>
     </div>
     <div class="section-content" [ngClass]="{'show': isSectionVisible('experience')}">
       <ul class="list-unstyled">
-        <li *ngFor="let job of experience" class="experience-item">
+        <li *ngFor="let job of experienceItems" class="experience-item">
           <h3 class="h4">{{ job.position }}</h3>
           <p><strong>{{ job.company }}</strong> - {{ job.period }}</p>
-          <div *ngFor="let desc of ensureArray(job.description)">
+          <div *ngFor="let desc of job.description">
             <p>{{ desc }}</p>
           </div>
         </li>
@@ -44,15 +56,16 @@
 
   <section class="skills mb-5" data-aos="fade-up" data-aos-delay="200">
     <div class="section-header">
-      <h2 class="display-5 section-title">Habilidades</h2>
+      <h2 class="display-5 section-title">{{ 'skillsTitle' | translate }}</h2>
       <button (click)="toggleSection('skills')" class="toggle-btn">
         <i class="fas" [ngClass]="{'fa-chevron-down': !isSectionVisible('skills'), 'fa-chevron-up': isSectionVisible('skills')}"></i>
       </button>
     </div>
     <div class="section-content" [ngClass]="{'show': isSectionVisible('skills')}">
       <div class="d-flex flex-wrap gap-3">
-        <div *ngFor="let skill of skills" class="badge skill-badge">
-          <i class="skill-icon me-2"></i> <!-- Adicione ícones aqui -->
+        <!-- Usando skillsItems do componente -->
+        <div *ngFor="let skill of skillsItems" class="badge skill-badge">
+          <i class="skill-icon me-2"></i>
           {{ skill }}
         </div>
       </div>
@@ -61,7 +74,7 @@
 
   <section class="projects mb-5" data-aos="fade-up" data-aos-delay="400">
     <div class="section-header">
-      <h2 class="display-5 section-title">Projetos</h2>
+      <h2 class="display-5 section-title">{{ 'projectsTitle' | translate }}</h2>
       <button (click)="toggleSection('projects')" class="toggle-btn">
         <i class="fas" [ngClass]="{'fa-chevron-down': !isSectionVisible('projects'), 'fa-chevron-up': isSectionVisible('projects')}"></i>
       </button>
@@ -69,9 +82,9 @@
     <div class="section-content" [ngClass]="{'show': isSectionVisible('projects')}">
       <div class="projects-container">
         <div *ngFor="let project of projects" class="project-card">
-          <h3>{{ project.name }}</h3>
-          <p>{{ project.description }}</p>
-          <a class="project-link" [href]="project.url" target="_blank">Ver Projeto</a>
+          <h3>{{ project.translatedName || project.name }}</h3>
+          <p>{{ project.translatedDescription || project.description }}</p>
+          <a class="project-link" [href]="project.url" target="_blank">{{ 'viewProjectTitle' | translate }}</a>
         </div>
       </div>
     </div>
@@ -79,7 +92,7 @@
 
   <section class="contact mb-5" data-aos="fade-up" data-aos-delay="300">
     <div class="section-header">
-      <h2 class="display-5 section-title">Contato</h2>
+      <h2 class="display-5 section-title">{{ 'contactTitle' | translate }}</h2>
       <button (click)="toggleSection('contact')" class="toggle-btn">
         <i class="fas" [ngClass]="{'fa-chevron-down': !isSectionVisible('contact'), 'fa-chevron-up': isSectionVisible('contact')}"></i>
       </button>
@@ -87,13 +100,13 @@
     <div class="section-content" [ngClass]="{'show': isSectionVisible('contact')}">
       <div class="contact-cards-container">
         <div class="contact-card">
-          <a href="mailto:{{ email }}">Email</a>
+          <a [href]="'mailto:' + email">E-mail</a>
         </div>
         <div class="contact-card">
-          <a href="{{ linkedin }}" target="_blank">LinkedIn</a>
+          <a [href]="linkedin" target="_blank">LinkedIn</a>
         </div>
         <div class="contact-card">
-          <a href="{{ instagram }}" target="_blank">Instagram</a>
+          <a [href]="instagram" target="_blank">Instagram</a>
         </div>
       </div>
     </div>
@@ -107,11 +120,24 @@
   <!-- Box de navegação rápida -->
   <div [ngClass]="{'navigation-box': true, 'show': isNavigationBoxVisible}">
     <ul>
-      <li><button (click)="scrollToSection('about')">Sobre Mim</button></li>
-      <li><button (click)="scrollToSection('experience')">Experiência</button></li>
-      <li><button (click)="scrollToSection('skills')">Habilidades</button></li>
-      <li><button (click)="scrollToSection('projects')">Projetos</button></li>
-      <li><button (click)="scrollToSection('contact')">Contato</button></li>
+      <li><button (click)="scrollToSection('about')">{{ 'aboutTitle' | translate }}</button></li>
+      <li><button (click)="scrollToSection('experience')">{{ 'experienceTile' | translate }}</button></li>
+      <li><button (click)="scrollToSection('skills')">{{ 'skillsTitle' | translate }}</button></li>
+      <li><button (click)="scrollToSection('projects')">{{ 'projectsTitle' | translate }}</button></li>
+      <li><button (click)="scrollToSection('contact')">{{ 'contactTitle' | translate }}</button></li>
     </ul>
+
+  <!-- Rótulo para clarificação -->
+  <div class="language-switcher text-center mb-5">
+    <!-- Botões de troca de idioma com ícones -->
+    <button (click)="switchLanguage('pt')" [class.active]="currentLanguage === 'pt'" class="language-btn">
+      <img src="assets/images/icons/flags/br.png" alt="Português" class="flag-icon">
+      Português
+    </button>
+    <button (click)="switchLanguage('en')" [class.active]="currentLanguage === 'en'" class="language-btn">
+      <img src="assets/images/icons/flags/us.png" alt="English" class="flag-icon">
+      English
+    </button>
+  </div>
   </div>
 </div>

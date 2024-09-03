@@ -1,34 +1,96 @@
-/* Estilo aprimorado da imagem de perfil */
-.profile-img {
-  border: 2px solid rgba(255, 255, 255, 0.2); /* Borda sutil e translúcida */
-  border-radius: 50%; /* Mantém as bordas arredondadas */
-  max-width: 180px; /* Um pouco maior para destacar */
+/* Estilo para a tela de splash */
+.splash-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
-  height: auto;
-  display: block;
-  margin: 0 auto;
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.9); /* Fundo branco semi-transparente */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Garante que a splash screen esteja acima de outros elementos */
 }
 
-/* Efeito hover mais suave e elegante */
-.profile-img:hover {
-  transform: scale(1.08); /* Aumento mais suave */
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4); /* Sombra mais suave e pronunciada */
-  border-color: rgba(255, 255, 255, 0.3); /* Mudança sutil na cor da borda */
+/* Estilo para o indicador de carregamento */
+.loader {
+  border: 8px solid #f3f3f3; /* Light grey */
+  border-top: 8px solid #0d47a1; /* Azul escuro */
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 1s linear infinite;
+}
+
+/* Animação de carregamento */
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Contêiner para a imagem de perfil */
+.profile-img-container {
+  position: relative; /* Permite posicionamento relativo para os elementos filhos */
+  width: 50%; /* A largura ocupa metade do header */
+  height: 100%; /* A altura é igual à do header */
+  background-color: rgba(13, 71, 161, 0.1); /* Fundo azul claro semi-transparente */
+  border-radius: 10px; /* Bordas levemente arredondadas para um toque moderno */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Sombra para destacar */
+  overflow: hidden; /* Garante que a imagem não transborde */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0; /* Remover margens */
+  padding: 0; /* Remover padding */
+}
+
+/* Estilo da imagem de perfil */
+.profile-img {
+  width: 100%; /* Ocupa toda a largura do contêiner */
+  height: 100%; /* Ocupa toda a altura do contêiner */
+  object-fit: cover; /* Mantém o aspecto da imagem e preenche o contêiner */
+  object-position: bottom; /* Ajusta a posição da imagem para mostrar mais a parte inferior */
+  display: block; /* Remove espaço em branco abaixo da imagem */
+}
+
+/* Segundo quadrado em paralelo */
+.profile-img-container::before {
+  content: '';
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  width: calc(100% + 20px); /* Ajusta o tamanho para englobar a borda */
+  height: calc(100% + 20px); /* Ajusta o tamanho para englobar a borda */
+  border: 2px solid #1e88e5; /* Borda azul clara */
+  border-radius: 10px; /* Bordas levemente arredondadas */
+  z-index: -1; /* Posiciona atrás da imagem de perfil */
+  box-sizing: border-box; /* Inclui a borda dentro do cálculo de altura/largura */
+}
+
+/* Contêiner para o título */
+.title-container {
+  width: 50%; /* Metade da largura do header */
+  display: flex;
+  align-items: center; /* Centraliza verticalmente o título */
+  justify-content: center; /* Centraliza horizontalmente o título */
+  text-align: center; /* Centraliza o texto */
+  height: 100%; /* Alinha o título com a altura do header */
+  margin: 0; /* Remove margens */
+  padding: 0; /* Remove padding */
 }
 
 /* Estilo global para títulos */
 h1.display-4, h2.display-5, h3 {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Fonte moderna */
   font-weight: 300;
-  color: #f9fcffda; /* Cor escura para contraste */
-  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.11); /* Sombra leve */
+  color: #0d47a1; /* Cor azul escura */
+  text-shadow: 1px 1px 2px rgba(240, 248, 255, 0.8); /* Sombra leve */
 }
 
 p {
   font-family: 'Roboto', sans-serif; /* Fonte moderna */
   font-weight: 400; /* Peso normal */
-  color: #e0e0e0; /* Cor mais clara para texto */
+  color: #333333; /* Cor do texto escuro */
   line-height: 1.6; /* Altura da linha para melhor legibilidade */
 }
 
@@ -38,11 +100,46 @@ header img {
   margin: 0 auto;
 }
 
-/* Ajuste no cabeçalho para mais harmonia */
+/* Ajuste do Header para posicionamento relativo */
 header {
-  background: linear-gradient(135deg, rgba(60, 0, 150, 0.1), rgba(120, 40, 180, 0.2));
-  padding: 30px;
-  border-radius: 15px; /* Bordas mais arredondadas */
+  position: relative; /* Permite o posicionamento absoluto da imagem de perfil */
+  padding: 0; /* Remove padding para ajuste fino */
+  background: linear-gradient(135deg, #42a5f5, #0d47a1); /* Gradiente azul existente */
+  border-radius: 15px; /* Bordas arredondadas para o header */
+  height: 500px; /* Define uma altura fixa para o header */
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Mantém espaço entre a imagem e o título */
+  box-sizing: border-box; /* Inclui padding e border no cálculo de altura/largura */
+  overflow: hidden; /* Garante que o conteúdo extra não transborde */
+}
+
+/* Novo elemento para adicionar as listras */
+.header-stripes {
+  position: absolute; /* Posicionamento absoluto dentro do header */
+  top: 0;
+  left: 0; /* Alinhado à esquerda */
+  width: 100%; /* Ocupa toda a largura do header */
+  height: 100%; /* Ocupa toda a altura do header */
+  background: repeating-linear-gradient(
+    45deg, /* Ângulo de 45 graus para listras diagonais */
+    rgba(255, 255, 255, 0.1), /* Cor das listras (semi-transparente) */
+    rgba(255, 255, 255, 0.1) 10px, /* Fim da listra a cada 10px */
+    transparent 10px, /* Espaço transparente de 10px */
+    transparent 20px /* Repete o padrão a cada 20px */
+  );
+  z-index: 1; /* Garante que o elemento esteja acima do fundo, mas abaixo do conteúdo */
+  pointer-events: none; /* Impede que o elemento capture eventos do mouse */
+}
+
+/* Novo contêiner flexível para conteúdo do header */
+.header-content {
+  display: flex; /* Configura como flex container */
+  align-items: center; /* Alinha verticalmente no centro */
+  width: 100%; /* Largura total do header */
+  height: 100%; /* Altura total do header */
+  position: relative;
+  z-index: 2; /* Garante que o conteúdo esteja acima das listras */
 }
 
 /* Estilo do título principal com mais elegância */
@@ -58,7 +155,14 @@ h1.modern-title {
 section {
   margin-top: 20px;
   overflow: hidden; /* Garante que o conteúdo não transborde durante a animação */
-  transition: max-height 0.5s ease, opacity 0.5s ease; /* Ajuste a duração conforme desejado */
+  padding: 1.5rem; /* Adiciona padding ao redor das seções */
+  background: rgba(240, 248, 255, 0.1); /* Fundo semi-transparente */
+  border-radius: 10px; /* Bordas arredondadas semelhantes à seção de experiência */
+  backdrop-filter: blur(10px); /* Efeito de desfoque de fundo */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra leve */
+  border: 1px solid rgba(0, 0, 0, 0.1); /* Borda sutil */
+  transition: max-height 0.5s ease, opacity 0.5s ease, background 0.3s ease, box-shadow 0.3s ease; /* Transições suaves */
+  margin-bottom: 20px; /* Espaço abaixo das seções */
 }
 
 /* Quando a seção está oculta */
@@ -71,18 +175,18 @@ section.hidden {
 .section-title {
   font-family: 'Roboto', sans-serif;
   font-weight: 500;
-  color: #343a40; /* Cor escura para contraste */
-  border-bottom: 2px solid #bdb0b0; /* Linha embaixo do título */
+  color: #0d47a1; /* Cor azul escura */
+  border-bottom: 2px solid #1e88e5; /* Linha embaixo do título */
   padding-bottom: 10px;
 }
 
 /* Estilo dos itens de experiência */
 .experience-item {
   position: relative;
-  border-bottom: 1px solid #ffffff;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   padding-bottom: 15px;
   margin-bottom: 15px;
-  background: rgba(255, 255, 255, 0.1); /* Fundo semi-transparente */
+  background: rgba(240, 248, 255, 0.589); /* Fundo semi-transparente */
   backdrop-filter: blur(20px); /* Desfoque de fundo */
   border-radius: 10px; /* Bordas arredondadas */
   padding: 10px; /* Padding para espaçamento interno */
@@ -97,9 +201,21 @@ section.hidden {
   margin-bottom: 10px;
 }
 
+/* Ajuste de layout para a seção de habilidades */
+.skills {
+  padding: 1.5rem; /* Adiciona padding ao redor das habilidades */
+  background: rgba(240, 248, 255, 0.1); /* Fundo semi-transparente */
+  border-radius: 10px; /* Bordas arredondadas semelhantes à seção de experiência */
+  backdrop-filter: blur(10px); /* Efeito de desfoque de fundo */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra leve */
+  border: 1px solid rgba(0, 0, 0, 0.1); /* Borda sutil */
+  margin-bottom: 20px; /* Espaço abaixo da seção */
+  transition: background 0.3s ease, box-shadow 0.3s ease; /* Transições suaves */
+}
+
 /* Estilo das habilidades */
 .skills .skill-badge {
-  background: #451585; /* Azul padrão */
+  background: #0d47a1; /* Azul escuro */
   color: #ffffff;
   transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
   display: flex;
@@ -109,18 +225,19 @@ section.hidden {
   padding: 0.75rem 1.5rem; /* Ajuste de padding */
   font-size: 1rem;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra leve */
+  margin: 0.5rem; /* Adiciona margem ao redor de cada badge */
 }
 
 /* Efeito hover para habilidades */
 .skills .skill-badge:hover {
-  background: #ffffff; /* Azul escuro ao passar o mouse */
-  color: black;
+  background: #1e88e5; /* Azul claro ao passar o mouse */
+  color: #333333; /* Cor do texto muda ao passar o mouse */
   transform: scale(1.05); /* Leve aumento no tamanho */
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Sombra mais forte */
 }
 
-.project-link{
-  background: #321554b7; /* Azul padrão */
+.project-link {
+  background: #0d47a1; /* Azul escuro */
   color: #ffffff;
   transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
   align-items: center;
@@ -133,8 +250,8 @@ section.hidden {
 }
 
 .project-link:hover {
-  background: #ffffff; /* Azul escuro ao passar o mouse */
-  color: black;
+  background: #1e88e5; /* Azul claro ao passar o mouse */
+  color: #333333;
   transform: scale(1.05); /* Leve aumento no tamanho */
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Sombra mais forte */
 }
@@ -166,7 +283,7 @@ ng-particles {
   border: none;
   cursor: pointer;
   font-size: 1.5rem;
-  color: #f9fcff;
+  color: #0d47a1;
   transition: color 0.3s ease, transform 0.3s ease;
   position: relative;
   padding: 0;
@@ -181,13 +298,13 @@ ng-particles {
   left: 50%;
   width: 0;
   height: 2px;
-  background-color: #f9fcff;
+  background-color: #0d47a1;
   transition: width 0.3s ease, left 0.3s ease;
 }
 
 /* Efeito hover no botão */
 .toggle-btn:hover {
-  color: #e0e0e0;
+  color: #1e88e5;
   transform: scale(1.1);
 }
 
@@ -217,7 +334,7 @@ ng-particles {
 
 /* Estilo geral dos cards de contato */
 .contact-card {
-  background: rgba(255, 255, 255, 0.1); /* Fundo semi-transparente */
+  background: rgba(240, 248, 255, 0.8); /* Fundo semi-transparente */
   border-radius: 8px; /* Bordas arredondadas */
   padding: 15px; /* Padding interno */
   margin: 10px; /* Espaçamento entre os cards */
@@ -231,23 +348,28 @@ ng-particles {
 
 /* Efeito hover nos cards */
 .contact-card:hover {
-  background: rgba(255, 255, 255, 0.192); /* Fundo mais claro ao passar o mouse */
-  color: #000000;
+  background: #0d47a1; /* Fundo azul ao passar o mouse */
+  color: #ffffff;
   transform: translateY(-5px); /* Leve elevação ao passar o mouse */
 }
 
 /* Estilo dos links dentro dos cards */
 .contact-card a {
   text-decoration: none; /* Remove o sublinhado */
-  color: #ffffff; /* Cor do texto */
+  color: #0d47a1; /* Cor do texto */
   font-weight: 500; /* Peso do texto */
   display: block; /* Faz com que o link ocupe toda a área do card */
   transition: color 0.3s ease; /* Transição suave para a cor */
 }
 
+/* Mantém a cor do link ao passar o mouse no card */
+.contact-card:hover a {
+  color: #ffffff; /* Mantém o texto branco quando o card é hover */
+}
+
 /* Efeito hover nos links */
 .contact-card a:hover {
-  color: #ffffff; /* Cor do texto ao passar o mouse */
+  color: #1e88e5; /* Cor do texto ao passar o mouse */
 }
 
 /* Flexbox para exibir os cards lado a lado */
@@ -259,7 +381,7 @@ ng-particles {
 
 /* Estilo geral dos cards de projetos */
 .project-card {
-  background: rgba(255, 255, 255, 0.1); /* Fundo semi-transparente */
+  background: rgba(240, 248, 255, 0.8); /* Fundo semi-transparente */
   border-radius: 10px; /* Bordas arredondadas */
   padding: 15px; /* Padding interno */
   margin: 10px; /* Espaçamento entre os cards */
@@ -269,7 +391,7 @@ ng-particles {
 
 /* Efeito hover nos cards de projetos */
 .project-card:hover {
-  background: rgba(255, 255, 255, 0.192); /* Fundo mais claro ao passar o mouse */
+  background: #0d47a1; /* Fundo azul ao passar o mouse */
   transform: translateY(-5px); /* Leve elevação ao passar o mouse */
 }
 
@@ -279,8 +401,8 @@ ng-particles {
   right: 20px;
   top: 50%;
   transform: translateY(-50%);
-  background: rgba(135, 18, 182, 0.438);
-  color: #f9fcff;
+  background: #0d47a1;
+  color: #ffffff;
   border: none;
   padding: 10px;
   border-radius: 20%;
@@ -288,16 +410,20 @@ ng-particles {
   z-index: 1000;
 }
 
-/* Estilo para o box de navegação lateral */
+/* Estilo para o contêiner da barra de navegação */
 .navigation-box {
+  display: flex; /* Define o contêiner como um Flexbox */
+  flex-direction: column; /* Alinha os itens verticalmente */
+  justify-content: space-between; /* Espaça os itens uniformemente */
+  align-items: center; /* Centraliza os itens horizontalmente */
   position: fixed;
   right: 0;
   top: 0;
   width: 250px;
   height: 100%;
-  background: rgba(42, 8, 70, 0.849); /* Cor escura com leve transparência */
-  color: #f9fcff;
-  box-shadow: rgba(28, 5, 46, 0.8);
+  background: rgba(240, 248, 255, 0.87); /* Fundo semi-transparente */
+  color: #0d47a1;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra leve */
   transform: translateX(100%);
   transition: transform 0.3s ease;
   z-index: 999;
@@ -309,21 +435,29 @@ ng-particles {
   transform: translateX(0);
 }
 
-/* Estilo para os botões de navegação dentro do box */
+/* Estilo para a lista de navegação */
 .navigation-box ul {
   list-style-type: none;
   padding: 0;
   margin: 0;
+  flex-grow: 1; /* Permite que a lista de navegação ocupe o espaço disponível */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Alinha os botões de navegação à esquerda */
+  width: 100%;
 }
 
+/* Estilo para os itens da lista de navegação */
 .navigation-box li {
   margin-bottom: 15px;
+  width: 100%;
 }
 
+/* Estilo para os botões de navegação */
 .navigation-box button {
   background: none;
   border: none;
-  color: #f9fcff;
+  color: #0d47a1;
   font-size: 1.25rem;
   cursor: pointer;
   text-align: left;
@@ -336,5 +470,55 @@ ng-particles {
 
 /* Efeito hover nos botões de navegação */
 .navigation-box button:hover {
-  background: rgba(135, 18, 182, 0.438);
+  background: #1e88e5;
+}
+
+/* Estilo para o contêiner de troca de idioma dentro da navbar */
+.language-switcher {
+  display: flex; /* Define o contêiner como um Flexbox */
+  flex-direction: column; /* Coloca os botões em coluna */
+  align-items: center; /* Centraliza os botões horizontalmente */
+  gap: 0.5rem; /* Espaçamento entre os botões */
+  margin-top: auto; /* Empurra o contêiner para o final da navbar */
+  width: 100%;
+  padding-top: 1rem; /* Espaçamento superior */
+  border-top: 1px solid rgba(0, 0, 0, 0.1); /* Linha de separação */
+}
+
+/* Estilo para os botões de troca de idioma */
+.language-btn {
+  background: #0d47a1; /* Cor de fundo azul escuro */
+  color: #ffffff; /* Cor do texto branca */
+  border: none; /* Sem borda */
+  border-radius: 0.375rem; /* Bordas arredondadas */
+  padding: 0.5rem 1rem; /* Padding interno para espaçamento */
+  font-size: 1rem; /* Tamanho da fonte */
+  cursor: pointer; /* Cursor de ponteiro ao passar o mouse */
+  transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; /* Transições suaves */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra leve */
+  display: flex; /* Flex para alinhar ícone e texto */
+  align-items: center; /* Alinha o ícone com o texto */
+  gap: 0.5rem; /* Espaçamento entre o ícone e o texto */
+  width: 100%; /* Faz o botão ocupar toda a largura */
+}
+
+/* Efeito hover para os botões de troca de idioma */
+.language-btn:hover {
+  background: #1e88e5; /* Cor de fundo azul claro ao passar o mouse */
+  transform: scale(1.05); /* Leve aumento no tamanho ao passar o mouse */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Sombra mais forte */
+}
+
+/* Estilo do ícone da bandeira */
+.flag-icon {
+  width: 24px; /* Largura do ícone */
+  height: 24px; /* Altura do ícone */
+}
+
+/* Estilo para o botão ativo */
+.language-btn.active {
+  background: #1e88e5; /* Azul mais claro para indicar o botão ativo */
+  font-weight: bold; /* Texto em negrito */
+  transform: scale(1.1); /* Leve aumento no tamanho para o botão ativo */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Sombra mais forte para o botão ativo */
 }

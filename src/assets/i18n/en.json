@@ -1,0 +1,74 @@
+{
+  "title": "Sávio Bertoldi",
+  "email": "savio.b09@gmail.com",
+  "linkedIn": "https://www.linkedin.com/in/sávio-bertoldi-2b09a51b9/",
+  "instagram": "https://www.instagram.com/saviobertoldii/",
+  "about": "Currently, I work as a Full-stack Web Developer, bringing solid expertise in Angular and TypeScript for Front-end development, while focusing intensely on Backend development using C#, .NET, and Oracle PL/SQL.",
+  "skills": [
+    ".NET", "C#", "TypeScript", "Oracle PL/SQL", "GraphQL", "Angular", "JavaScript",
+    "Git", "Clean code", "HTML", "GitHub", "IIS", "CSS", "Web Development",
+    "Backend Development", "Full-Stack Development"
+  ],
+  "experience": [
+    {
+      "position": "Full-stack Web Developer",
+      "company": "Operacional.com",
+      "period": "August 2021 | Present",
+      "description": [
+        "My advanced knowledge in TypeScript and the Angular 13+ framework allows me to develop and implement new functionalities and components, using a custom internal library based on DevExtreme components. By creating dynamic and responsive user interfaces, this skill ensures that I can provide robust and efficient solutions tailored to the specific needs of each project.",
+        "On the Backend, my main focus is on using .NET and C#, where I develop robust APIs and services that ensure seamless integration between Frontend and Backend. I implement scalable and efficient solutions, suitable to meet the complex needs of projects. I use a Layered Modular Architecture with Repository Pattern and RESTful APIs on the backend, which ensures clear and efficient organization of system responsibilities. I have deep knowledge in entity structure, using Dapper for efficient data access, and apply object-oriented principles to create modular and easy-to-maintain systems. I work with versions 6, 7, and 8 of .NET, keeping up to date with the latest improvements and features of the platform. Additionally, I follow the RESTful standard for APIs, ensuring that my services are well-structured, easily consumable, and compatible with industry standards. I have experience with implementations, developments, and the use of WebSockets in C# using the SignalR library.",
+        "My experience in Oracle PL/SQL databases complements this work, allowing me to optimize queries and manage data efficiently, ensuring that applications are not only functional but also performant and scalable. Experience extended to system maintenance and correction, where I apply a detailed analysis of system structure and code to identify and solve problems effectively. This analytical capability also allows me to conduct analyses to develop new implementations in the system, assisting various team members and providing guidance that facilitates overall development and improves team efficiency.",
+        "I have extensive experience in the application and implementation of business rules, adapting solutions to meet the specific demands of each client. I also have advanced knowledge in version generation and final build of applications for hosting on IIS. My professional journey includes advanced knowledge in IIS server and in the migration and development of ERP Systems in Delphi to WEB. Currently, I am responsible for hosting and updating the web ERP systems of our clients using the Microsoft Azure cloud platform. My experience includes configuring and managing Azure App Service to ensure high availability and scalability of applications. This experience has provided me with a deep understanding of the full lifecycle of web applications in a cloud environment, from development and testing to continuous deployment and maintenance, always seeking to optimize performance and ensure the security and reliability of systems.",
+        "I have strong communication and teamwork skills, which allows me to effectively collaborate with colleagues and stakeholders, ensuring that projects meet expectations and are delivered within established deadlines. Additionally, I have extensive experience dealing directly with clients, understanding their needs, and providing solutions that add value to their businesses. One of my professional prides is the experience in training and mentoring interns in the web development area, helping to form the next generation of developers. This mentoring role reinforces my commitment to continuous learning and knowledge sharing, which are essential for growth and innovation in the technology field.",
+        "Committed to continuous learning, I am constantly improving my skills and acquiring new knowledge to always stay aligned with the needs of the job market. My dedication to professional development ensures that I am always prepared to face new challenges and contribute significantly to the success of the projects I am involved in. After completing my technologist degree in Systems Analysis and Development, I have the ambition to pursue a postgraduate degree in Software Engineering. I believe that this specialization will provide me with even deeper and more specialized knowledge in the field, allowing me to contribute more significantly to the development of complex and innovative projects. Currently, I am studying English with the goal of achieving fluency in the language, expanding my communication skills, and becoming even more effective in a global environment.",
+        "• 3 years of experience as a Full-stack Web Developer, Specialist in Angular, TypeScript, C#, .NET, and Oracle PL/SQL.",
+        "• Implementation of features and improvements in systems using web technologies.",
+        "• System maintenance and problem resolution using Angular, TypeScript, C#, .NET, and Oracle PL/SQL.",
+        "• Participation in full-stack development projects focusing on Angular and C#.",
+        "• Analysis and optimization of queries in Oracle PL/SQL databases.",
+        "• Integration of systems and APIs using technologies such as Angular, TypeScript, and .NET.",
+        "• Development of customized solutions in C# to meet specific demands.",
+        "• Participation in the deployment and testing processes of developed web applications.",
+        "• Expertise in responsive design and user experience.",
+        "• Experience in Git code versioning.",
+        "• Participation in complex and high-performance projects.",
+        "• Ability to work in a team and solve problems efficiently.",
+        "• Experience in system and database integration.",
+        "• Proficient in backend development with .NET and Oracle PL/SQL.",
+        "• Experience in administration and configuration of Windows Server servers.",
+        "• Knowledge in troubleshooting and problem resolution on IIS servers.",
+        "• Participation in data and system migration projects.",
+        "• Experience in analyzing and resolving system issues, ensuring stability and security of operations.",
+        "• Experience in assisting team members in daily tasks.",
+        "• Knowledge in working together with colleagues to achieve common goals.",
+        "• Ability to support and guide new employees during the onboarding process.",
+        "• Experience in dealing with high-pressure situations and staying calm under stress.",
+        "• Experience in integrating services and APIs with Azure App Service.",
+        "• Knowledge in implementing and maintaining Azure cloud infrastructure."
+      ]
+    },
+    {
+      "position": "Industrial Electrician",
+      "company": "L & R Instalações elétricas",
+      "period": "January 2018 | August 2021",
+      "description": [
+        "I am a graduate from Senai in Building Electrical Installations, accumulating over 3 years of practical experience as an electrician. During this period, I performed complex electrical installations, solved various technical problems, and developed detailed analyses to ensure the delivery of high-quality services to clients. This initial experience laid the foundation for my successful transition to the technology field, where I apply my attention to detail and analytical skills to solve software development challenges.",
+        "• Experience in installation and maintenance of industrial electrical systems.",
+        "• Knowledge in reading and interpreting electrical diagrams.",
+        "• Ability to identify and solve problems in electrical circuits.",
+        "• Worked with electromechanical equipment in an industrial environment.",
+        "• Conducted functionality tests on electrical panels."
+      ]
+    }
+  ],
+
+  "languageText": "Select language: ",
+
+  "viewProjectTitle": "View project",
+
+  "aboutTitle": "About me",
+  "skillsTitle": "Skills",
+  "experienceTile": "Experience",
+  "projectsTitle": "Projects",
+  "contactTitle": "Contact"
+}
