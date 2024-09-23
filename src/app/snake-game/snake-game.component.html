@@ -1,0 +1,14 @@
+<section id="snake-game" class="game-container">
+  <p class="display-5 center-text-sneak">{{ 'info' | translate }}</p>
+  <h2>{{ 'titleSnake' | translate }}</h2>
+  <canvas #gameCanvas width="600" height="600"></canvas>
+  <p>{{ 'tutorial' | translate }}</p>
+
+  <!-- Elemento para exibir o placar -->
+  <div class="score-board">
+    <p>{{ 'score' | translate }}: {{ score }}</p>
+    <p *ngIf="gameOver" class="game-over">{{ 'gameOver' | translate }}: {{ score }}</p>
+  </div>
+
+  <button (click)="resetGame()" class="reset-btn">{{ 'reset' | translate }}</button>
+</section>

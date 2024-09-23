@@ -3,6 +3,7 @@
   <div class="loader"></div>
 </div>
 
+<!-- Partículas no fundo -->
 <ng-particles
   [id]="id"
   [options]="particlesOptions"
@@ -10,18 +11,28 @@
 ></ng-particles>
 
 <div class="container my-5">
+  <!-- Header -->
   <header class="text-center mb-5 position-relative">
-    <div class="header-stripes"></div>
+    <div class="header-gradient"></div> <!-- Gradient Overlay -->
     <div class="header-content">
       <div class="title-container">
         <h1 class="display-4 modern-title">{{ 'title' | translate }}</h1>
+           <!-- Scroll Down Indicator -->
+         <div class="scroll-indicator">
+              <span class="scroll-text">{{ 'scrollDown' | translate }}</span>
+              <span class="scroll-arrow">↓</span>
+          </div>
       </div>
+
       <div class="profile-img-container">
         <img src="assets/images/minha-foto.jpg" alt="Minha Foto" class="img-fluid profile-img" />
       </div>
-    </div>
+
+        </div>
+
   </header>
 
+  <!-- Seção Sobre Mim -->
   <section class="about mb-5" data-aos="fade-up">
     <div class="section-header">
       <h2 class="display-5 section-title">{{ 'aboutTitle' | translate }}</h2>
@@ -30,10 +41,11 @@
       </button>
     </div>
     <div class="section-content" [ngClass]="{'show': isSectionVisible('about')}">
-      <p class="lead">{{ 'about' | translate }}</p>
+      <p>{{ 'about' | translate }}</p>
     </div>
   </section>
 
+  <!-- Seção de Experiência -->
   <section class="experience mb-5" data-aos="fade-up" data-aos-delay="100">
     <div class="section-header">
       <h2 class="display-5 section-title">{{ 'experienceTile' | translate }}</h2>
@@ -54,6 +66,7 @@
     </div>
   </section>
 
+  <!-- Seção de Habilidades -->
   <section class="skills mb-5" data-aos="fade-up" data-aos-delay="200">
     <div class="section-header">
       <h2 class="display-5 section-title">{{ 'skillsTitle' | translate }}</h2>
@@ -72,6 +85,7 @@
     </div>
   </section>
 
+  <!-- Seção de Projetos -->
   <section class="projects mb-5" data-aos="fade-up" data-aos-delay="400">
     <div class="section-header">
       <h2 class="display-5 section-title">{{ 'projectsTitle' | translate }}</h2>
@@ -82,40 +96,69 @@
     <div class="section-content" [ngClass]="{'show': isSectionVisible('projects')}">
       <div class="projects-container">
         <div *ngFor="let project of projects" class="project-card">
-          <h3>{{ project.translatedName || project.name }}</h3>
-          <p>{{ project.translatedDescription || project.description }}</p>
+          <h3>{{ project.name }}</h3>
+          <p>{{ project.description }}</p>
           <a class="project-link" [href]="project.url" target="_blank">{{ 'viewProjectTitle' | translate }}</a>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="contact mb-5" data-aos="fade-up" data-aos-delay="300">
-    <div class="section-header">
-      <h2 class="display-5 section-title">{{ 'contactTitle' | translate }}</h2>
-      <button (click)="toggleSection('contact')" class="toggle-btn">
-        <i class="fas" [ngClass]="{'fa-chevron-down': !isSectionVisible('contact'), 'fa-chevron-up': isSectionVisible('contact')}"></i>
-      </button>
-    </div>
-    <div class="section-content" [ngClass]="{'show': isSectionVisible('contact')}">
-      <div class="contact-cards-container">
-        <div class="contact-card">
-          <a [href]="'mailto:' + email">E-mail</a>
-        </div>
-        <div class="contact-card">
-          <a [href]="linkedin" target="_blank">LinkedIn</a>
-        </div>
-        <div class="contact-card">
-          <a [href]="instagram" target="_blank">Instagram</a>
-        </div>
+  <!-- Seção de Contato -->
+<section class="contact mb-5" data-aos="fade-up" data-aos-delay="300">
+  <div class="section-header">
+    <h2 class="display-5 section-title">{{ 'contactTitle' | translate }}</h2>
+    <button (click)="toggleSection('contact')" class="toggle-btn">
+      <i class="fas" [ngClass]="{'fa-chevron-down': !isSectionVisible('contact'), 'fa-chevron-up': isSectionVisible('contact')}"></i>
+    </button>
+  </div>
+  <div class="section-content" [ngClass]="{'show': isSectionVisible('contact')}">
+    <div class="contact-cards-container">
+      <div class="contact-card">
+        <a [href]="'mailto:' + email" >Email</a>
+      </div>
+      <div class="contact-card">
+        <a [href]="linkedin" target="_blank">LinkedIn</a>
+      </div>
+      <div class="contact-card">
+        <a [href]="instagram" target="_blank">Instagram</a>
       </div>
     </div>
-  </section>
+    <div class="download-cv">
+      <a [href]="cvUrl" download class="btn">
+        <i class="fas fa-download"></i> {{ 'downloadCV' | translate }}
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="github" data-aos="fade-up" data-aos-delay="300">
+  <h2 class="display-5 section-title">{{ 'gitHubTitle' | translate }}</h2>
+
+  <button (click)="toggleSection('github')" class="toggle-btn">
+    <i class="fas" [ngClass]="{'fa-chevron-down': !isSectionVisible('github'), 'fa-chevron-up': isSectionVisible('github')}"></i>
+  </button>
+  <div class="section-content" [ngClass]="{'show': isSectionVisible('github')}">
+    <ul>
+      <li *ngFor="let activity of recentActivities">
+        <p>{{ activity.type }} em <strong>{{ activity.repo.name }}</strong></p>
+        <p>Data: {{ activity.created_at | date:'short' }}</p>
+      </li>
+    </ul>
+  </div>
+
+</section>
+
 
   <!-- Botão para exibir/ocultar o card lateral -->
   <button class="toggle-navigation-box" (click)="toggleNavigationBox()">
     <i class="fas fa-bars"></i>
   </button>
+
+  <div *ngIf="isDesktopOrLaptop">
+    <app-snake-game></app-snake-game>
+  </div>
+
 
   <!-- Box de navegação rápida -->
   <div [ngClass]="{'navigation-box': true, 'show': isNavigationBoxVisible}">
@@ -125,19 +168,20 @@
       <li><button (click)="scrollToSection('skills')">{{ 'skillsTitle' | translate }}</button></li>
       <li><button (click)="scrollToSection('projects')">{{ 'projectsTitle' | translate }}</button></li>
       <li><button (click)="scrollToSection('contact')">{{ 'contactTitle' | translate }}</button></li>
+      <li><button (click)="scrollToSection('github')">GitHub</button></li>
     </ul>
 
-  <!-- Rótulo para clarificação -->
-  <div class="language-switcher text-center mb-5">
-    <!-- Botões de troca de idioma com ícones -->
-    <button (click)="switchLanguage('pt')" [class.active]="currentLanguage === 'pt'" class="language-btn">
-      <img src="assets/images/icons/flags/br.png" alt="Português" class="flag-icon">
-      Português
-    </button>
-    <button (click)="switchLanguage('en')" [class.active]="currentLanguage === 'en'" class="language-btn">
-      <img src="assets/images/icons/flags/us.png" alt="English" class="flag-icon">
-      English
-    </button>
-  </div>
+    <!-- Rótulo para clarificação -->
+    <div class="language-switcher text-center mb-5">
+      <!-- Botões de troca de idioma com ícones -->
+      <button (click)="switchLanguage('pt')" [class.active]="currentLanguage === 'pt'" class="language-btn">
+        <img src="assets/images/icons/flags/br.png" alt="Português" class="flag-icon">
+        Português
+      </button>
+      <button (click)="switchLanguage('en')" [class.active]="currentLanguage === 'en'" class="language-btn">
+        <img src="assets/images/icons/flags/us.png" alt="English" class="flag-icon">
+        English
+      </button>
+    </div>
   </div>
 </div>

@@ -40,3 +40,7 @@ testem.log
 # System files
 .DS_Store
 Thumbs.db
+
+# Ignorar os arquivos de ambiente para não comprometer tokens ou chaves sensíveis
+src/environments/environment.ts
+src/environments/environment.prod.ts

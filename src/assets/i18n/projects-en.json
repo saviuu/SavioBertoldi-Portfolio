@@ -1,0 +1,49 @@
+{
+  "projects": {
+    "1": {
+      "name": "Spotify-Clone Angular",
+      "description": "Spotify Clone developed with Angular and TypeScript consuming the Spotify API.",
+      "url": "https://github.com/saviuu/Spotify-Clone-Angular"
+    },
+    "2": {
+      "name": "Task Manager",
+      "description": "Task manager developed with Angular and TypeScript.",
+      "url": "https://github.com/saviuu/Gerenciador-de-tarefas"
+    },
+    "3": {
+      "name": "NotasJS",
+      "description": "Website developed with JavaScript that performs note search using the fetch API.",
+      "url": "https://github.com/saviuu/NotasJS"
+    },
+    "4": {
+      "name": "CRUD-Angular",
+      "description": "CRUD developed with Angular.",
+      "url": "https://github.com/saviuu/AngularAluraCRUD"
+    },
+    "5": {
+      "name": "GoDev",
+      "description": "Application developed in Java.",
+      "url": "https://github.com/saviuu/godev"
+    },
+    "6": {
+      "name": "Registration",
+      "description": "Registration developed in Java.",
+      "url": "https://github.com/saviuu/projeto_cadastro"
+    },
+    "7": {
+      "name": "SnakeJS",
+      "description": "Snake game developed in JavaScript.",
+      "url": "https://github.com/saviuu/Snake.JS"
+    },
+    "8": {
+      "name": "Portfolio-API",
+      "description": "C# Web API developed to fetch and optimize the projects presented on this site.",
+      "url": "https://github.com/saviuu/PortfolioSBApi"
+    },
+    "9": {
+      "name": "Portfolio-Frontend",
+      "description": "Frontend application presented on this site.",
+      "url": "https://github.com/saviuu/SavioBertoldi-Portfolio"
+    }
+  }
+}

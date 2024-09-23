@@ -1,3 +1,13 @@
+/* Ajustes gerais para espaçamento */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+  line-height: 1.6;
+  background-color: #24292e; /* Fundo escuro para manter o estilo */
+  color: #dcdcdc; /* Cor de texto suave */
+}
+
 /* Estilo para a tela de splash */
 .splash-screen {
   position: fixed;
@@ -5,17 +15,17 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(255, 255, 255, 0.9); /* Fundo branco semi-transparente */
+  background-color: rgba(22, 22, 22, 0.9);
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 1000; /* Garante que a splash screen esteja acima de outros elementos */
+  z-index: 1000;
 }
 
 /* Estilo para o indicador de carregamento */
 .loader {
-  border: 8px solid #f3f3f3; /* Light grey */
-  border-top: 8px solid #0d47a1; /* Azul escuro */
+  border: 8px solid #f3f3f3;
+  border-top: 8px solid #0366d6;
   border-radius: 50%;
   width: 50px;
   height: 50px;
@@ -28,29 +38,167 @@
   100% { transform: rotate(360deg); }
 }
 
-/* Contêiner para a imagem de perfil */
-.profile-img-container {
-  position: relative; /* Permite posicionamento relativo para os elementos filhos */
-  width: 50%; /* A largura ocupa metade do header */
-  height: 100%; /* A altura é igual à do header */
-  background-color: rgba(13, 71, 161, 0.1); /* Fundo azul claro semi-transparente */
-  border-radius: 10px; /* Bordas levemente arredondadas para um toque moderno */
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Sombra para destacar */
-  overflow: hidden; /* Garante que a imagem não transborde */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
+  60% {
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes fade {
+  0%, 100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+/* Botão para expandir o layout */
+.expand-layout-btn {
+  position: absolute;
+  top: 90%;
+  right: 2%;
+  transform: translateY(-50%);
+  background: linear-gradient(135deg, rgba(97, 182, 252, 0.63), rgba(255, 11, 11, 0.377));
+  border: none;
+  border-radius: 25%;
+  width: 50px;
+  height: 50px;
+  font-size: 24px;
+  color: #ffffff;
+  cursor: pointer;
+  z-index: 10;
+  transition: transform 0.3s ease;
+}
+
+.expand-layout-btn:hover {
+  transform: translateY(-50%) scale(1.1);
+}
+
+/* Layout expansível com gradiente preto */
+.expandable-layout {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 0;
+  height: 100%;
+  background: linear-gradient(to right, transparent, rgba(0, 0, 0, 0.8));
+  transition: width 0.5s ease;
+  overflow: hidden;
+  z-index: 2;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0; /* Remover margens */
-  padding: 0; /* Remover padding */
 }
 
-/* Estilo da imagem de perfil */
+.expandable-layout.expanded {
+  width: 50%;
+}
+
+/* Estilo para o container do carrossel */
+.carousel-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 3;
+}
+
+.carousel-text {
+  font-family: Helvetica, sans-serif;
+  color: #0366d6;
+  font-size: 20px;
+  text-align: center;
+  animation: fade 5s ease-in-out infinite;
+  z-index: 4;
+  background-color: transparent;
+  padding: 10px;
+}
+
+/* Gradient Overlay Dinâmico */
+.header-gradient {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(36, 41, 46, 0.63), rgba(70, 78, 86, 0.377));
+  background-size: 200% 200%;
+  animation: gradientMove 10s ease infinite;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Scroll Down Indicator */
+.scroll-indicator {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  z-index: 2;
+  font-size: 18px;
+  color: #ffffff;
+  animation: fadeIn 2s ease-in-out infinite;
+}
+
+.scroll-arrow {
+  display: block;
+  font-size: 24px;
+  margin-top: 5px;
+  animation: bounce 2s infinite;
+}
+
+/* Contêiner para a imagem de perfil */
+.profile-img-container {
+  position: relative;
+  width: 50%;
+  height: 100%;
+  background-color: rgba(13, 71, 161, 0.1);
+  border-radius: 5px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .profile-img {
-  width: 100%; /* Ocupa toda a largura do contêiner */
-  height: 100%; /* Ocupa toda a altura do contêiner */
-  object-fit: cover; /* Mantém o aspecto da imagem e preenche o contêiner */
-  object-position: bottom; /* Ajusta a posição da imagem para mostrar mais a parte inferior */
-  display: block; /* Remove espaço em branco abaixo da imagem */
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: bottom;
+  display: block;
 }
 
 /* Segundo quadrado em paralelo */
@@ -59,137 +207,126 @@
   position: absolute;
   top: -10px;
   left: -10px;
-  width: calc(100% + 20px); /* Ajusta o tamanho para englobar a borda */
-  height: calc(100% + 20px); /* Ajusta o tamanho para englobar a borda */
-  border: 2px solid #1e88e5; /* Borda azul clara */
-  border-radius: 10px; /* Bordas levemente arredondadas */
-  z-index: -1; /* Posiciona atrás da imagem de perfil */
-  box-sizing: border-box; /* Inclui a borda dentro do cálculo de altura/largura */
+  width: calc(100% + 20px);
+  height: calc(100% + 20px);
+  border: 2px solid #0366d6;
+  border-radius: 10px;
+  z-index: -1;
+  box-sizing: border-box;
 }
 
 /* Contêiner para o título */
 .title-container {
-  width: 50%; /* Metade da largura do header */
+  width: 50%;
   display: flex;
-  align-items: center; /* Centraliza verticalmente o título */
-  justify-content: center; /* Centraliza horizontalmente o título */
-  text-align: center; /* Centraliza o texto */
-  height: 100%; /* Alinha o título com a altura do header */
-  margin: 0; /* Remove margens */
-  padding: 0; /* Remove padding */
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  animation: fadeInUp 1s ease-out forwards;
 }
 
 /* Estilo global para títulos */
 h1.display-4, h2.display-5, h3 {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Fonte moderna */
+  font-family: 'IBM Plex Mono', monospace;
   font-weight: 300;
-  color: #0d47a1; /* Cor azul escura */
-  text-shadow: 1px 1px 2px rgba(240, 248, 255, 0.8); /* Sombra leve */
+  color: #ebebeb;
 }
 
 p {
-  font-family: 'Roboto', sans-serif; /* Fonte moderna */
-  font-weight: 400; /* Peso normal */
-  color: #333333; /* Cor do texto escuro */
-  line-height: 1.6; /* Altura da linha para melhor legibilidade */
+  font-family: 'Roboto', sans-serif;
+  font-weight: 200;
+  color: #cacaca;
+  line-height: 1.6;
+  margin-bottom: 40px !important;
 }
 
-/* Ajuste para a imagem do cabeçalho */
 header img {
   display: block;
   margin: 0 auto;
 }
 
-/* Ajuste do Header para posicionamento relativo */
 header {
-  position: relative; /* Permite o posicionamento absoluto da imagem de perfil */
-  padding: 0; /* Remove padding para ajuste fino */
-  background: linear-gradient(135deg, #42a5f5, #0d47a1); /* Gradiente azul existente */
-  border-radius: 15px; /* Bordas arredondadas para o header */
-  height: 500px; /* Define uma altura fixa para o header */
+  position: relative;
+  padding: 0;
+  border-radius: 10px;
+  height: 500px;
   display: flex;
   align-items: center;
-  justify-content: space-between; /* Mantém espaço entre a imagem e o título */
-  box-sizing: border-box; /* Inclui padding e border no cálculo de altura/largura */
-  overflow: hidden; /* Garante que o conteúdo extra não transborde */
+  justify-content: space-between;
+  box-sizing: border-box;
+  overflow: hidden;
+  background: linear-gradient(135deg, #24292e, #586069);
 }
 
-/* Novo elemento para adicionar as listras */
-.header-stripes {
-  position: absolute; /* Posicionamento absoluto dentro do header */
-  top: 0;
-  left: 0; /* Alinhado à esquerda */
-  width: 100%; /* Ocupa toda a largura do header */
-  height: 100%; /* Ocupa toda a altura do header */
-  background: repeating-linear-gradient(
-    45deg, /* Ângulo de 45 graus para listras diagonais */
-    rgba(255, 255, 255, 0.1), /* Cor das listras (semi-transparente) */
-    rgba(255, 255, 255, 0.1) 10px, /* Fim da listra a cada 10px */
-    transparent 10px, /* Espaço transparente de 10px */
-    transparent 20px /* Repete o padrão a cada 20px */
-  );
-  z-index: 1; /* Garante que o elemento esteja acima do fundo, mas abaixo do conteúdo */
-  pointer-events: none; /* Impede que o elemento capture eventos do mouse */
-}
-
-/* Novo contêiner flexível para conteúdo do header */
 .header-content {
-  display: flex; /* Configura como flex container */
-  align-items: center; /* Alinha verticalmente no centro */
-  width: 100%; /* Largura total do header */
-  height: 100%; /* Altura total do header */
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 100%;
   position: relative;
-  z-index: 2; /* Garante que o conteúdo esteja acima das listras */
+  z-index: 2;
 }
 
-/* Estilo do título principal com mais elegância */
 h1.modern-title {
   font-family: 'Roboto', sans-serif;
   font-weight: 600;
   color: #ffffff;
-  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); /* Sombra mais suave */
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
   margin-bottom: 20px;
 }
 
-/* Estilo das seções */
 section {
-  margin-top: 20px;
-  overflow: hidden; /* Garante que o conteúdo não transborde durante a animação */
-  padding: 1.5rem; /* Adiciona padding ao redor das seções */
-  background: rgba(240, 248, 255, 0.1); /* Fundo semi-transparente */
-  border-radius: 10px; /* Bordas arredondadas semelhantes à seção de experiência */
-  backdrop-filter: blur(10px); /* Efeito de desfoque de fundo */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra leve */
-  border: 1px solid rgba(0, 0, 0, 0.1); /* Borda sutil */
-  transition: max-height 0.5s ease, opacity 0.5s ease, background 0.3s ease, box-shadow 0.3s ease; /* Transições suaves */
-  margin-bottom: 20px; /* Espaço abaixo das seções */
+  position: relative;
+  margin-top: 30px;
+  overflow: hidden;
+  padding: 2rem;
+  background-color: #24292e;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin-bottom: 20px;
 }
 
-/* Quando a seção está oculta */
+.section-gradient {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(36, 41, 46, 0.63), rgba(70, 78, 86, 0.377));
+  background-size: 200% 200%;
+  animation: gradientMove 10s ease infinite;
+  z-index: -1;
+  pointer-events: none;
+}
+
 section.hidden {
-  max-height: 0; /* Oculta a seção */
-  opacity: 0; /* Torna a seção invisível */
+  max-height: 0;
+  opacity: 0;
 }
 
-/* Estilo das seções */
 .section-title {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
   font-family: 'Roboto', sans-serif;
   font-weight: 500;
-  color: #0d47a1; /* Cor azul escura */
-  border-bottom: 2px solid #1e88e5; /* Linha embaixo do título */
-  padding-bottom: 10px;
+  color: #0366d6;
+  border-bottom: 2px solid #e1e4e8;
+  padding-bottom: 0.5rem;
 }
 
-/* Estilo dos itens de experiência */
 .experience-item {
   position: relative;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid #e1e4e8;
   padding-bottom: 15px;
-  margin-bottom: 15px;
-  background: rgba(240, 248, 255, 0.589); /* Fundo semi-transparente */
-  backdrop-filter: blur(20px); /* Desfoque de fundo */
-  border-radius: 10px; /* Bordas arredondadas */
-  padding: 10px; /* Padding para espaçamento interno */
+  margin-bottom: 20px;
+  background: rgba(0, 0, 0, 0.05);
+  backdrop-filter: blur(20px);
+  border-radius: 10px;
+  padding: 20px;
 }
 
 .experience-item h3 {
@@ -201,96 +338,66 @@ section.hidden {
   margin-bottom: 10px;
 }
 
-/* Ajuste de layout para a seção de habilidades */
 .skills {
-  padding: 1.5rem; /* Adiciona padding ao redor das habilidades */
-  background: rgba(240, 248, 255, 0.1); /* Fundo semi-transparente */
-  border-radius: 10px; /* Bordas arredondadas semelhantes à seção de experiência */
-  backdrop-filter: blur(10px); /* Efeito de desfoque de fundo */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra leve */
-  border: 1px solid rgba(0, 0, 0, 0.1); /* Borda sutil */
-  margin-bottom: 20px; /* Espaço abaixo da seção */
-  transition: background 0.3s ease, box-shadow 0.3s ease; /* Transições suaves */
+  padding: 1.5rem;
+  background-color: #24292e;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  margin-bottom: 20px;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Estilo das habilidades */
 .skills .skill-badge {
-  background: #0d47a1; /* Azul escuro */
+  background: #0366d6;
   color: #ffffff;
   transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 0.375rem;
-  padding: 0.75rem 1.5rem; /* Ajuste de padding */
+  padding: 0.75rem 1.5rem;
   font-size: 1rem;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra leve */
-  margin: 0.5rem; /* Adiciona margem ao redor de cada badge */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  margin: 0.5rem;
 }
 
-/* Efeito hover para habilidades */
 .skills .skill-badge:hover {
-  background: #1e88e5; /* Azul claro ao passar o mouse */
-  color: #333333; /* Cor do texto muda ao passar o mouse */
-  transform: scale(1.05); /* Leve aumento no tamanho */
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Sombra mais forte */
-}
-
-.project-link {
-  background: #0d47a1; /* Azul escuro */
+  background: #005cc5;
   color: #ffffff;
-  transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
-  align-items: center;
-  justify-content: left;
-  border-radius: 0.375rem;
-  padding: 0.75rem 1.5rem; /* Ajuste de padding */
-  font-size: 1rem;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra leve */
-  text-decoration: none;
+  transform: translateY(-5px);
 }
 
-.project-link:hover {
-  background: #1e88e5; /* Azul claro ao passar o mouse */
-  color: #333333;
-  transform: scale(1.05); /* Leve aumento no tamanho */
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Sombra mais forte */
-}
-
-/* Configurações para o fundo animado */
 .particles-js {
-  position: absolute; /* Faz com que o fundo de partículas fique atrás do conteúdo */
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: -1; /* Coloca atrás do conteúdo */
-  pointer-events: none; /* Impede que o contêiner das partículas capture eventos do mouse */
+  z-index: -1;
+  pointer-events: none;
 }
 
-/* Garante que o componente de partículas ocupe o fundo inteiro */
 ng-particles {
-  position: fixed; /* Fixado no fundo */
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: -1; /* Coloca atrás do conteúdo */
+  z-index: -1;
 }
 
-/* Estilo do botão de toggle */
 .toggle-btn {
   background: none;
   border: none;
   cursor: pointer;
   font-size: 1.5rem;
-  color: #0d47a1;
+  color: #ffffff;
   transition: color 0.3s ease, transform 0.3s ease;
   position: relative;
   padding: 0;
   margin-left: 10px;
 }
 
-/* Adiciona um pseudo-elemento para destaque */
 .toggle-btn::after {
   content: '';
   position: absolute;
@@ -298,17 +405,15 @@ ng-particles {
   left: 50%;
   width: 0;
   height: 2px;
-  background-color: #0d47a1;
+  background-color: #ffffff;
   transition: width 0.3s ease, left 0.3s ease;
 }
 
-/* Efeito hover no botão */
 .toggle-btn:hover {
-  color: #1e88e5;
+  color: #ffffff;
   transform: scale(1.1);
 }
 
-/* Efeito hover no pseudo-elemento */
 .toggle-btn:hover::after {
   width: 100%;
   left: 0;
@@ -319,89 +424,99 @@ ng-particles {
   opacity: 0;
 }
 
-/* Estilos para a seção conteúdo */
 .section-content {
   overflow: hidden;
   transition: max-height 0.6s ease-out, opacity 0.6s ease-out;
-  max-height: 0; /* Inicialmente oculto */
+  max-height: 0;
   opacity: 0;
 }
 
 .section-content.show {
-  max-height: 5000px; /* Defina um valor inicial alto */
+  max-height: 5000px;
   opacity: 1;
 }
 
-/* Estilo geral dos cards de contato */
 .contact-card {
-  background: rgba(240, 248, 255, 0.8); /* Fundo semi-transparente */
-  border-radius: 8px; /* Bordas arredondadas */
-  padding: 15px; /* Padding interno */
-  margin: 10px; /* Espaçamento entre os cards */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra leve */
-  text-align: center; /* Centraliza o texto */
-  transition: background 0.3s ease, transform 0.3s ease; /* Transições suaves */
+  background: #0366d6;
+  border-radius: 8px;
+  padding: 15px;
+  margin: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  transition: background 0.3s ease, transform 0.3s ease;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-/* Efeito hover nos cards */
 .contact-card:hover {
-  background: #0d47a1; /* Fundo azul ao passar o mouse */
+  background: #005cc5;
   color: #ffffff;
-  transform: translateY(-5px); /* Leve elevação ao passar o mouse */
+  transform: translateY(-5px);
 }
 
-/* Estilo dos links dentro dos cards */
 .contact-card a {
-  text-decoration: none; /* Remove o sublinhado */
-  color: #0d47a1; /* Cor do texto */
-  font-weight: 500; /* Peso do texto */
-  display: block; /* Faz com que o link ocupe toda a área do card */
-  transition: color 0.3s ease; /* Transição suave para a cor */
+  text-decoration: none;
+  color: #ffffff;
+  font-weight: 500;
+  display: block;
+  transition: color 0.3s ease;
 }
 
-/* Mantém a cor do link ao passar o mouse no card */
 .contact-card:hover a {
-  color: #ffffff; /* Mantém o texto branco quando o card é hover */
+  color: #ffffff;
 }
 
-/* Efeito hover nos links */
 .contact-card a:hover {
-  color: #1e88e5; /* Cor do texto ao passar o mouse */
+  color: #ffffff;
 }
 
-/* Flexbox para exibir os cards lado a lado */
 .contact-cards-container {
   display: flex;
-  flex-wrap: wrap; /* Permite que os cards quebrem linha se necessário */
-  justify-content: center; /* Centraliza os cards horizontalmente */
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
-/* Estilo geral dos cards de projetos */
 .project-card {
-  background: rgba(240, 248, 255, 0.8); /* Fundo semi-transparente */
-  border-radius: 10px; /* Bordas arredondadas */
-  padding: 15px; /* Padding interno */
-  margin: 10px; /* Espaçamento entre os cards */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra leve */
-  transition: background 0.3s ease, transform 0.3s ease; /* Transições suaves */
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 10px;
+  margin: 20px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: background 0.3s ease, transform 0.3s ease;
 }
 
-/* Efeito hover nos cards de projetos */
 .project-card:hover {
-  background: #0d47a1; /* Fundo azul ao passar o mouse */
-  transform: translateY(-5px); /* Leve elevação ao passar o mouse */
+  background: #3a3a3a88;
+  transform: translateY(-5px);
 }
 
-/* Estilo para os botões de navegação lateral */
+.project-link {
+  background: #0366d6;
+  color: #ffffff;
+  transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  align-items: center;
+  justify-content: left;
+  border-radius: 0.375rem;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  text-decoration: none;
+}
+
+.project-link:hover {
+  background: #005cc5;
+  color: #ffffff;
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
 .toggle-navigation-box {
   position: fixed;
   right: 20px;
   top: 50%;
   transform: translateY(-50%);
-  background: #0d47a1;
+  background: #0366d6;
   color: #ffffff;
   border: none;
   padding: 10px;
@@ -410,54 +525,49 @@ ng-particles {
   z-index: 1000;
 }
 
-/* Estilo para o contêiner da barra de navegação */
 .navigation-box {
-  display: flex; /* Define o contêiner como um Flexbox */
-  flex-direction: column; /* Alinha os itens verticalmente */
-  justify-content: space-between; /* Espaça os itens uniformemente */
-  align-items: center; /* Centraliza os itens horizontalmente */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
   position: fixed;
   right: 0;
   top: 0;
   width: 250px;
   height: 100%;
-  background: rgba(240, 248, 255, 0.87); /* Fundo semi-transparente */
-  color: #0d47a1;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra leve */
+  background: #24292e;
+  color: #ffffff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   transform: translateX(100%);
   transition: transform 0.3s ease;
   z-index: 999;
   padding: 20px;
 }
 
-/* Exibe o box de navegação quando visível */
 .navigation-box.show {
   transform: translateX(0);
 }
 
-/* Estilo para a lista de navegação */
 .navigation-box ul {
   list-style-type: none;
   padding: 0;
   margin: 0;
-  flex-grow: 1; /* Permite que a lista de navegação ocupe o espaço disponível */
+  flex-grow: 1;
   display: flex;
   flex-direction: column;
-  align-items: flex-start; /* Alinha os botões de navegação à esquerda */
+  align-items: flex-start;
   width: 100%;
 }
 
-/* Estilo para os itens da lista de navegação */
 .navigation-box li {
   margin-bottom: 15px;
   width: 100%;
 }
 
-/* Estilo para os botões de navegação */
 .navigation-box button {
   background: none;
   border: none;
-  color: #0d47a1;
+  color: #ffffff;
   font-size: 1.25rem;
   cursor: pointer;
   text-align: left;
@@ -466,59 +576,131 @@ ng-particles {
   padding: 10px;
   border-radius: 5px;
   transition: background 0.3s ease;
+  margin-bottom: 15px;
+  padding: 10px 15px;
 }
 
-/* Efeito hover nos botões de navegação */
 .navigation-box button:hover {
-  background: #1e88e5;
+  background: #444d56;
 }
 
-/* Estilo para o contêiner de troca de idioma dentro da navbar */
 .language-switcher {
-  display: flex; /* Define o contêiner como um Flexbox */
-  flex-direction: column; /* Coloca os botões em coluna */
-  align-items: center; /* Centraliza os botões horizontalmente */
-  gap: 0.5rem; /* Espaçamento entre os botões */
-  margin-top: auto; /* Empurra o contêiner para o final da navbar */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: auto;
   width: 100%;
-  padding-top: 1rem; /* Espaçamento superior */
-  border-top: 1px solid rgba(0, 0, 0, 0.1); /* Linha de separação */
+  padding-top: 1rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
 }
 
-/* Estilo para os botões de troca de idioma */
 .language-btn {
-  background: #0d47a1; /* Cor de fundo azul escuro */
-  color: #ffffff; /* Cor do texto branca */
-  border: none; /* Sem borda */
-  border-radius: 0.375rem; /* Bordas arredondadas */
-  padding: 0.5rem 1rem; /* Padding interno para espaçamento */
-  font-size: 1rem; /* Tamanho da fonte */
-  cursor: pointer; /* Cursor de ponteiro ao passar o mouse */
-  transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; /* Transições suaves */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra leve */
-  display: flex; /* Flex para alinhar ícone e texto */
-  align-items: center; /* Alinha o ícone com o texto */
-  gap: 0.5rem; /* Espaçamento entre o ícone e o texto */
-  width: 100%; /* Faz o botão ocupar toda a largura */
+  background: #0366d6;
+  color: #ffffff;
+  border: none;
+  border-radius: 0.375rem;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+  margin-top: 10px;
 }
 
-/* Efeito hover para os botões de troca de idioma */
 .language-btn:hover {
-  background: #1e88e5; /* Cor de fundo azul claro ao passar o mouse */
-  transform: scale(1.05); /* Leve aumento no tamanho ao passar o mouse */
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Sombra mais forte */
+  background: #005cc5;
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
 }
 
-/* Estilo do ícone da bandeira */
 .flag-icon {
-  width: 24px; /* Largura do ícone */
-  height: 24px; /* Altura do ícone */
+  width: 20px;
+  height: 20px;
 }
 
-/* Estilo para o botão ativo */
 .language-btn.active {
-  background: #1e88e5; /* Azul mais claro para indicar o botão ativo */
-  font-weight: bold; /* Texto em negrito */
-  transform: scale(1.1); /* Leve aumento no tamanho para o botão ativo */
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Sombra mais forte para o botão ativo */
+  background: #005cc5;
+  font-weight: bold;
+  transform: scale(1.1);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.download-cv {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.download-cv a.btn {
+  background: #0366d6;
+  color: #fff;
+  padding: 15px;
+  font-size: 1.2rem;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background 0.3s ease, transform 0.3s ease;
+  margin: 10px;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.download-cv a.btn:hover {
+  background: #005cc5;
+  color: #ffffff;
+  transform: translateY(-5px);
+}
+
+.github {
+  margin-top: 20px;
+  padding: 20px;
+  background-color: #24292e;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.github h2 {
+  font-size: 1.7rem;
+  color: #ffffff;
+  margin-bottom: 15px;
+  font-family: 'IBM Plex Mono', monospace;
+  border-bottom: 2px solid #00bfff;
+  padding-bottom: 10px;
+}
+
+.github ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.github li {
+  margin-bottom: 20px;
+  padding: 10px;
+  background-color: #2f363d;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.github li:hover {
+  background-color: #444d56;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.github li p {
+  margin: 0;
+  font-size: 1rem;
+  color: #dcdcdc;
+  line-height: 1.5;
+}
+
+.github li strong {
+  font-weight: bold;
+  color: #00bfff;
+  font-family: 'Fira Code', monospace;
 }

@@ -11,15 +11,14 @@ import { ApolloModule } from 'apollo-angular';
 import { graphqlProvider } from './graphql.provider';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { createTranslateLoader } from './shared/translation/multi-translate-http-loader';
+import { SnakeGameComponent } from './snake-game/snake-game.component';
 
-// Função de fábrica para o TranslateLoader
-export function HttpLoaderFactory(http: HttpClient) {
-  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
-}
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    SnakeGameComponent
   ],
   imports: [
     CommonModule,
@@ -32,7 +31,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
-        useFactory: HttpLoaderFactory,
+        useFactory: createTranslateLoader,
         deps: [HttpClient]
       }
     }),

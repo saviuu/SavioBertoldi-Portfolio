@@ -3,7 +3,12 @@
   "email": "savio.b09@gmail.com",
   "linkedIn": "https://www.linkedin.com/in/sávio-bertoldi-2b09a51b9/",
   "instagram": "https://www.instagram.com/saviobertoldii/",
-  "about": "Currently, I work as a Full-stack Web Developer, bringing solid expertise in Angular and TypeScript for Front-end development, while focusing intensely on Backend development using C#, .NET, and Oracle PL/SQL.",
+    "about": [
+      "My journey led me to transition into the technology field, where I discovered my true passion for developing innovative and efficient solutions. My goal is to improve user experience and optimize processes, always utilizing the latest technologies to create robust and scalable applications. With each project, I strive to go beyond, adding value through solutions that combine innovation and functionality.",
+      "Outside the technological environment, I am driven by my connection to nature, where I find balance and renewal. Practicing sports and maintaining a routine of physical exercises are essential to keeping my mind and body active. This connection with the world around me also inspires me and reflects on how I approach professional challenges.",
+      "Additionally, I am an enthusiast of electronic games, which help me hone crucial skills such as strategic thinking, problem-solving, and creativity. This combination of interests, both in technology and my personal activities, provides me with a fundamental balance between focus and innovation.",
+      "I believe that this integration between my personal and professional life contributes to creating more human and user-centered solutions, always with the goal of turning challenges into opportunities for growth."
+    ],
   "skills": [
     ".NET", "C#", "TypeScript", "Oracle PL/SQL", "GraphQL", "Angular", "JavaScript",
     "Git", "Clean code", "HTML", "GitHub", "IIS", "CSS", "Web Development",
@@ -66,9 +71,13 @@
 
   "viewProjectTitle": "View project",
 
+  "scrollDown": "Scroll down",
+
   "aboutTitle": "About me",
   "skillsTitle": "Skills",
   "experienceTile": "Experience",
   "projectsTitle": "Projects",
-  "contactTitle": "Contact"
+  "contactTitle": "Contact",
+  "gitHubTitle": "Latest Activities on GitHub",
+  "downloadCV": "Download CV"
 }

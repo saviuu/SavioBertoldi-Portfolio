@@ -1,0 +1,76 @@
+/* Centraliza e dá espaçamento ao container do jogo */
+#snake-game {
+  text-align: center;
+  margin-top: 50px;
+  padding: 20px;
+  background-color: #24292e;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Estiliza o canvas do jogo */
+canvas {
+  background-color: #000;
+  border: 2px solid #ffffff;
+  border-radius: 10px;
+  margin-top: 20px;
+  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.3);
+}
+
+/* Estilo para o título do jogo */
+h2 {
+  color: #0366d6;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 2rem;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+}
+
+/* Estilo do parágrafo */
+#snake-game p {
+  color: #dcdcdc;
+  font-family: 'IBM Plex Mono', monospace;
+  margin: 20px 0;
+  font-size: 1.5rem;
+}
+
+/* Estilo para o botão de reset */
+.reset-btn {
+  background-color: #0366d6;
+  color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-family: 'IBM Plex Mono', monospace;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 191, 255, 0.3);
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.game-over{
+  color: red !important;
+}
+
+.reset-btn:hover {
+  background-color: #0450a7;
+}
+
+.center-text-sneak {
+  text-align: center;
+}
+
+/* Responsividade: ajustar o tamanho do canvas e o layout em dispositivos menores */
+@media (max-width: 768px) {
+  canvas {
+    width: 90%;
+    height: auto;
+  }
+
+  #snake-game {
+    padding: 10px;
+  }
+}

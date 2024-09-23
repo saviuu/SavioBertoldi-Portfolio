@@ -3,7 +3,10 @@
   "email": "savio.b09@gmail.com",
   "linkedIn": "https://www.linkedin.com/in/sávio-bertoldi-2b09a51b9/",
   "instagram": "https://www.instagram.com/saviobertoldii/",
-  "about": "Atualmente, atuo como Desenvolvedor Web Full-stack, trazendo uma sólida expertise em Angular e TypeScript para o desenvolvimento Front-end, enquanto foco intensamente no desenvolvimento Backend utilizando C#, .NET e Oracle PL/SQL.",
+  "about": ["Minha trajetória me levou a uma transição para a área de tecnologia, onde descobri minha verdadeira paixão por desenvolver soluções inovadoras e eficientes. Tenho como objetivo melhorar a experiência do usuário e otimizar processos, sempre utilizando as tecnologias mais recentes para criar aplicações robustas e escaláveis. A cada projeto, busco ir além, agregando valor por meio de soluções que unem inovação e funcionalidade.",
+            "Fora do ambiente tecnológico, sou movido pelo contato com a natureza, onde encontro equilíbrio e renovação. Praticar esportes e manter uma rotina de exercícios físicos são essenciais para manter meu corpo e mente ativos. Essa conexão com o mundo ao meu redor também me inspira e reflete na maneira como abordo os desafios profissionais.",
+            "Além disso, sou um entusiasta de jogos eletrônicos, que me ajudam a aprimorar habilidades cruciais, como pensamento estratégico, resolução de problemas e criatividade. Essa combinação de interesses, tanto na tecnologia quanto nas minhas atividades pessoais, me proporciona um equilíbrio fundamental entre foco e inovação.",
+            "Acredito que essa integração entre minha vida pessoal e profissional contribui para a criação de soluções mais humanas e centradas no usuário, sempre com o objetivo de transformar desafios em oportunidades de crescimento."],
   "skills": [
     ".NET", "C#", "TypeScript", "Oracle PL/SQL", "GraphQL", "Angular", "JavaScript",
     "Git", "Clean code", "HTML", "GitHub", "IIS", "CSS", "Web Development",
@@ -35,8 +38,8 @@
         "• Capacidade de trabalhar em equipe e resolver problemas de forma eficiente.",
         "• Experiência na integração de sistemas e bancos de dados.",
         "• Proficiente em desenvolvimento back-end com .NET e Oracle PL/SQL.",
-        "• Experiência com administração e configuração de servidores Windows Server",
-        "• Conhecimento em troubleshooting e resolução de problemas em servidores IIS",
+        "• Experiência com administração e configuração de servidores Windows Server.",
+        "• Conhecimento em troubleshooting e resolução de problemas em servidores IIS.",
         "• Participação em projetos de migração de dados e sistemas.",
         "• Experiência na análise e resolução de problemas em sistemas, garantindo a estabilidade e segurança das operações.",
         "• Experiência em auxiliar membros da equipe na realização de tarefas diárias.",
@@ -44,7 +47,7 @@
         "• Habilidade em apoiar e orientar novos colaboradores durante o processo de integração.",
         "• Experiência em lidar com situações de alta pressão e manter a calma sob estresse.",
         "• Experiência em integração de serviços e APIs com Azure App Service.",
-        "• Conhecimento em implementação e manutenção de infraestrutura em nuvem Azure"
+        "• Conhecimento em implementação e manutenção de infraestrutura em nuvem Azure."
       ]
     },
     {
@@ -53,11 +56,11 @@
       "period": "Janeiro 2018 | Agosto 2021",
       "description": [
         "Sou formado pelo Senai em Instalações Elétricas Prediais, acumulando mais de 3 anos de experiência prática como eletricista. Durante esse período, executei instalações elétricas complexas, solucionei problemas técnicos variados e desenvolvi análises detalhadas para assegurar a entrega de serviços de alta qualidade aos clientes. Essa experiência inicial formou a base para a minha transição bem-sucedida para a área de tecnologia, onde aplico minha atenção aos detalhes e habilidades analíticas para resolver desafios de desenvolvimento de software.",
-        "• Experiência em instalação e manutenção de sistemas elétricos industriais",
-        "• Conhecimento em leitura e interpretação de diagramas elétricos",
-        "• Capacidade de identificar e resolver problemas em circuitos elétricos",
-        "• Trabalhou com equipamentos eletromecânicos em ambiente industrial",
-        "• Realizou testes de funcionamento em painéis elétricos"
+        "• Experiência em instalação e manutenção de sistemas elétricos industriais.",
+        "• Conhecimento em leitura e interpretação de diagramas elétricos.",
+        "• Capacidade de identificar e resolver problemas em circuitos elétricos.",
+        "• Trabalhou com equipamentos eletromecânicos em ambiente industrial.",
+        "• Realizou testes de funcionamento em painéis elétricos."
       ]
     }
   ],
@@ -66,9 +69,13 @@
 
  "viewProjectTitle": "Ver projeto",
 
+  "scrollDown": "Explore mais",
+
   "aboutTitle": "Sobre mim",
   "skillsTitle": "Habilidades",
   "experienceTile": "Experiência",
   "projectsTitle": "Projetos",
-  "contactTitle": "Contato"
+  "contactTitle": "Contato",
+  "gitHubTitle": "Últimas Atividades no GitHub",
+  "downloadCV": "Baixar currículo"
 }

@@ -4,8 +4,13 @@ import { ClickMode, HoverMode, MoveDirection, OutMode } from "tsparticles-engine
 export const ParticlesOptions: IParticlesProps = {
   background: {
     color: {
-      value: "#FFFFFF", // Fundo branco para contraste
-    }
+      value: "#0d1117", // Fundo branco para contraste
+    },
+    //image: "url('https://picsum.photos/id/213/200/300/?blur')", // URL da imagem de fundo
+    position: "center",   // Posição da imagem
+    repeat: "no-repeat",  // Definindo para não repetir a imagem
+    size: "cover",        // A imagem irá cobrir todo o container
+    opacity: 0.9          // Transparência da imagem de fundo (opcional)
   },
   fpsLimit: 60, // Movimento mais suave
   interactivity: {
@@ -33,14 +38,14 @@ export const ParticlesOptions: IParticlesProps = {
   },
   particles: {
     color: {
-      value: "#1e88e5", // Azul intermediário para as partículas
+      value: "#ffffff", // Azul intermediário para as partículas
     },
     links: {
-      color: "#42a5f5", // Azul claro para os links entre partículas
+      color: "#ffffff", // Azul claro para os links entre partículas
       distance: 100,
       enable: true,
-      opacity: 0.2, // Linhas bem discretas
-      width: 1,
+      opacity: 0.3, // Linhas bem discretas
+      width: 2,
     },
     move: {
       direction: MoveDirection.none,
@@ -49,13 +54,13 @@ export const ParticlesOptions: IParticlesProps = {
         default: OutMode.bounce,
       },
       random: false,
-      speed: 1, // Movimento bem suave e lento
+      speed: 0.5, // Movimento bem suave e lento
       straight: false,
     },
     number: {
       density: {
         enable: true,
-        area: 300, // Menos partículas para deixar o layout mais limpo
+        area: 450, // Menos partículas para deixar o layout mais limpo
       },
       value: 40,
     },
@@ -72,7 +77,7 @@ export const ParticlesOptions: IParticlesProps = {
       type: "circle", // Formato simples e moderno
     },
     size: {
-      value: { min: 2, max: 4 }, // Partículas pequenas e discretas
+      value: { min: 3, max: 6 }, // Partículas pequenas e discretas
       anim: {
         enable: true,
         speed: 3,
