@@ -1,4 +1,4 @@
-import { Component, OnInit, HostListener, ElementRef } from '@angular/core';
+import { Component, OnInit, HostListener, ElementRef, Renderer2 } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import AOS from 'aos';
 import { GraphQLService } from './graphql/services/graphql.service';
@@ -69,12 +69,14 @@ export class AppComponent implements OnInit {
     private _graphQLService: GraphQLService,
     private githubService: GithubService,
     private eRef: ElementRef, // Adiciona referência ao elemento
-    private breakpointObserver: BreakpointObserver
+    private breakpointObserver: BreakpointObserver,
+    private renderer: Renderer2
   ) {
     this.translate.setDefaultLang(this.currentLanguage);  // Define o idioma padrão aqui
   }
 
   async ngOnInit() {
+    this.loadCSS('styles.css');
     this._breakpointObserver();
 
     this._getRecentActivities();
@@ -93,6 +95,13 @@ export class AppComponent implements OnInit {
     if (this.isNavigationBoxVisible && targetElement && !this.eRef.nativeElement.querySelector('.navigation-box').contains(targetElement) && !this.eRef.nativeElement.querySelector('.toggle-navigation-box').contains(targetElement)) {
       this.isNavigationBoxVisible = false;
     }
+  }
+
+  loadCSS(styleUrl: string) {
+    const linkElement = this.renderer.createElement('link');
+    linkElement.setAttribute('rel', 'stylesheet');
+    linkElement.setAttribute('href', styleUrl);
+    document.head.appendChild(linkElement);
   }
 
 // Método para alternar as frases
